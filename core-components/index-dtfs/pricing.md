@@ -2,13 +2,13 @@
 
 ### NAV <a href="#nav" id="nav"></a>
 
-The Price of a DTF is based on a NAV (Net Asset Value) calculation.
+The price of a DTF is based on a NAV (Net Asset Value) calculation.
 
-Given a DTF with a basket of `n` tokens, each with a spot price `p` , we can calculate the DTF's price as:
+Given a DTF with a basket of `n` tokens, each with a spot price `p`, we can calculate the DTF's price as:
 
 <figure><img src="../../.gitbook/assets/image.png" alt="" width="268"><figcaption></figcaption></figure>
 
-### Onchain Pricing <a href="#onchain-pricing" id="onchain-pricing"></a>
+### Onchain pricing <a href="#onchain-pricing" id="onchain-pricing"></a>
 
 The `toAssets()` function is used to convert a DTF share to its underlying assets. It will return the one-to-many exchange rate of the DTF.
 

@@ -27,7 +27,7 @@ Once a rebalance auction is opened by the `AUCTION_LAUNCHER`, every surplus toke
 
 For each token supplied to the rebalance, the `REBALANCE_MANAGER` provides a `low` and `high` price estimate. These should be set such that in the vast majority (99.9%+) of scenarios, the asset's price on secondary markets lies within the provided range. The maximum allowable price range for a token is 1e2: `high / low` must be <= 1e2.
 
-If the price of an asset rises above its `high` price, this can result in a loss of value for Folio holders due to the auction price curve on a token pair starting at too-low-a-price.
+If the price of an asset rises above its `high` price, this can result in a loss of value for Folio holders due to the auction price curve on a token pair starting at too low a price.
 
 When an auction is started, the `low` and `high` prices for both assets are used to calculate a `startPrice` and `endPrice` for the auction.
 
@@ -42,11 +42,11 @@ There are 2 ways to price assets, depending on the risk tolerance of the `REBALA
 
 * The `REBALANCE_MANAGER` provides ALL 0 prices for each token. This allows the `AUCTION_LAUNCHER` to set prices freely and prevents auctions from being opened permissionlessly.
 
-Overall the price range for any dutch auction (`startPrice / endPrice`) must be less than `1e6` to prevent precision issues.
+Overall the price range for any Dutch auction (`startPrice / endPrice`) must be less than `1e6` to prevent precision issues.
 
 #### Price curve <a href="#price-curve" id="price-curve"></a>
 
-Note: The first block may not have a price of exactly `startPrice` if it does not occur on the `start` timestamp. Similarly, the `endPrice` may not be exactly `endPrice` in the final block if it does not occur on the `end` timestamp.
+Note: The first block may not have a price of exactly `startPrice` if it does not occur on the `start` timestamp. Similarly, the price may not be exactly `endPrice` in the final block if it does not occur on the `end` timestamp.
 
 All auctions use an exponential decay price curve from `startPrice` to `endPrice` over the auction duration. The price at any time `t` is:
 
@@ -60,7 +60,7 @@ Where `k` is calculated so that `P(auction.endTime) = endPrice`.
 
 Auctions are sized by the difference between current balances and the basket ratios provided by the `limits`.
 
-The auction `sellAmount` represents the single largest quantity of sell token that can be transacted without violating the `limits` of either tokens in the pair.
+The auction `sellAmount` represents the single largest quantity of sell token that can be transacted without violating the `limits` of either token in the pair.
 
 In general, it is possible for the `sellAmount` to either increase or decrease over time, depending on whether the surplus of the sell token or deficit of the buy token is the limiting factor.
 
@@ -72,6 +72,13 @@ In general, it is possible for the `sellAmount` to either increase or decrease o
 Anyone can bid in any auction up to and including the `sellAmount` size, as long as the `price` exchange rate is met.
 
 ```
-/// @return sellAmount {sellTok} The amount of sell token on sale in the auction at a given timestamp/// @return bidAmount {buyTok} The amount of buy tokens required to bid for the full sell amount/// @return price D27{buyTok/sellTok} The price at the given timestamp as an 27-decimal fixed pointfunction getBid(   uint256 auctionId,   uint256 timestamp,   uint256 maxSellAmount) external view returns (uint256 sellAmount, uint256 bidAmount, uint256 price);
+/// @return sellAmount {sellTok} The amount of sell token on sale in the auction at a given timestamp
+/// @return bidAmount {buyTok} The amount of buy tokens required to bid for the full sell amount
+/// @return price D27{buyTok/sellTok} The price at the given timestamp as a 27-decimal fixed point
+function getBid(
+    uint256 auctionId,
+    uint256 timestamp,
+    uint256 maxSellAmount
+) external view returns (uint256 sellAmount, uint256 bidAmount, uint256 price);
 ```
 

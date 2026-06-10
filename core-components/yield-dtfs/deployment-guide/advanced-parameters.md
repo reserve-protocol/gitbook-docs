@@ -4,7 +4,7 @@ When deploying a Yield DTF, the deployer has the ability to configure many diffe
 
 As many of these parameters concern the [Protocol Operations](../protocol-operations.md), we advise reading through that section of the documentation first — it will give the deployer the necessary context to fully understand all parameters.
 
-## Backing manager parameters
+## Backing Manager parameters
 
 ### Trading delay (s)
 
@@ -43,18 +43,18 @@ Considerations:
 * If set too high, the protocol will be slow to rebalance.
 
 Default value (mainnet): `1800` = 30 minutes\
-Default value (base/arbitrum): `900` = 15 minutes
+Default value (Base/Arbitrum): `900` = 15 minutes
 
 ### Backing buffer (%)
 
-The backing buffer is a percentage value that describes how much extra collateral to hold as backing in the BackingManager. It is important for preventing RSR seizure during normal rebalancing.
+The backing buffer is a percentage value that describes how much extra collateral to hold as backing in the Backing Manager. It is important for preventing RSR seizure during normal rebalancing.
 
 * Too low a backing buffer can result in RSR seizure during normal rebalancing. While unpleasant, the stronger reason to avoid this is to prevent situations where RSR stakers are incentivized to unstake before rebalancing proposals in order to avoid paying their fair share. The backing buffer should be set high enough to prevent this outcome.
 * Too high a backing buffer can cause RToken and RSR staker yields to drop during large supply increases as new issuance creates additional debt burdens that must be filled in with new appreciation. In general the amount of time this takes is short, but when an RToken grows fast enough it can outpace and result in no revenue being recognized for a while.
 
 Note: It is not important to consider the backing buffer for _default_ scenarios, only governance-led rebalances.
 
-There is no one-size-fits-all — each RToken should customize their backing buffer parametrization based on:
+There is no one-size-fits-all — each RToken should customize its backing buffer parametrization based on:
 
 {% stepper %}
 {% step %}
@@ -100,7 +100,7 @@ Important: The redemption throttle must always exceed the issuance throttle.
 
 ### Issuance throttle rate (%)
 
-A fraction of the RToken supply that indicates how much net issuance to allow per hour. Can be set to 0, to solely rely on issuance throttle amount.
+A fraction of the RToken supply that indicates how much net issuance to allow per hour. Can be set to 0 to solely rely on the issuance throttle amount.
 
 Default value: `1e17` = 10% per hour
 
@@ -126,7 +126,7 @@ Must be at least 1 whole RToken. Can be set to 0 to solely rely on the redemptio
 
 Default value: `2.5e24` = 2,500,000 RToken
 
-## Other Parameters
+## Other parameters
 
 ### Short freeze duration (s)
 
@@ -140,7 +140,7 @@ Default value: `259200` = 3 days
 
 The number of seconds a long freeze lasts.
 
-Long freezes can be disabled by removing all addresses associated to the role.
+Long freezes can be disabled by removing all addresses associated with the role.
 
 Default value: `604800` = 1 week
 
@@ -151,7 +151,7 @@ Most RSR withdrawals will not trigger a refresh of asset prices (which can deter
 This parameter attempts to balance these tradeoffs, by setting a fraction of RSR stake that should be permitted to withdraw without a refresh of asset prices. When cumulative withdrawals (or a single large withdrawal) exceed this fraction, gas must be spent to refresh all assets. Setting this number larger allows unstakers to save more on gas at the cost of allowing more RSR to exit improperly in the event of a default.
 
 Default value (mainnet): `5e16` = 5%\
-Default value (base/arbitrum): `1e16` = 1%
+Default value (Base/Arbitrum): `1e16` = 1%
 
 ### Unstaking delay (s)
 
@@ -165,9 +165,9 @@ Default value: `1209600` = 2 weeks
 
 ### Reward ratio (decimals)
 
-The reward ratio is the percentage of the current reward amount that should be handed out per second. It applies to both the Furnace (RToken melting) and StRSR (RSR rewards).
+The reward ratio is the percentage of the current reward amount that should be handed out per second. It applies to both the Furnace (RToken melting) and stRSR (RSR rewards).
 
-Default value: `1146076687500` = a half life of 7 days.
+Default value: `1146076687500` = a half-life of 7 days.
 
 Mainnet reasonable range: `1e11` to `1e14`
 
@@ -178,9 +178,9 @@ The minimum trade volume represents the smallest amount of value that is worth e
 * Setting this too high will result in auctions happening infrequently or the RToken taking a haircut when it cannot be sure it has enough staked RSR to succeed in rebalancing at par.
 * Setting this too low may result in more slippage or allow griefers to delay important auctions. The variable should be set such that donations of size minTradeVolume would be worth delaying trading auctionLength seconds.
 
-We expect auction bidders to pass-through any gas fees they pay during trading to the protocol. They are under competition, so those that do not will find themselves with less capital over time relative to those that do.
+We expect auction bidders to pass through any gas fees they pay during trading to the protocol. They are under competition, so those that do not will find themselves with less capital over time relative to those that do.
 
-Warning: Every collateral in the basket should be a large enough portion of the basket that is worth trading at the configured minTradeVolume at typical supply levels.
+Warning: Every collateral in the basket should be a large enough portion of the basket that it is worth trading at the configured minTradeVolume at typical supply levels.
 
 Default value: `1e21` = $1k
 
@@ -188,6 +188,6 @@ Default value: `1e21` = $1k
 
 This represents the maximum sized trade for any trade involving RToken, in terms of value.
 
-Note: Each collateral plugin will also have its own max trade volume defined. Any trade will be sized to be less than or equal to the minimum of both plugin's max trade volumes.
+Note: Each collateral plugin will also have its own max trade volume defined. Any trade will be sized to be less than or equal to the minimum of both plugins' max trade volumes.
 
 Default value: `1e24` = $1m

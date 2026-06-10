@@ -26,21 +26,21 @@ The idea is to ensure net redemption for a DTF never exceeds some bounds per uni
 
 Note: It is recommended that the redemption throttle is greater than the issuance throttle, to avoid consuming all the redemption throttle with an issue‑redeem operation.
 
-## Staking and un-staking
+## Staking and unstaking
 
 Reserve Rights (RSR) holders can stake their RSR tokens on Yield DTFs to make DTF holders whole in the unlikely event of a collateral token default, and receive a portion of the revenue the DTF makes in return.
 
-Right after staking RSR tokens on a Yield DTF, the staker receives an stRSR (staked Reserve Rights) token at a particular exchange rate to RSR. This exchange rate starts at 1.00 and will change over time—either by revenue being shared to the RSR stakers, or through overcollateralization slashing.
+Right after staking RSR tokens on a Yield DTF, the staker receives an stRSR (staked Reserve Rights) token at a particular exchange rate to RSR. This exchange rate starts at 1.00 and will change over time—either by revenue being shared with the RSR stakers, or through overcollateralization slashing.
 
 To participate and vote in Governance proposals, stakers need to delegate their stakes to themselves to activate their voting weight.
 
 ![](<../../.gitbook/assets/staking rsr.svg>)
 
-If an RSR staker decides to un-stake their RSR tokens, they’ll have to wait the un-staking delay (by default set to 2 weeks) before receiving their RSR tokens back. While in the delay period, the stRSR to RSR exchange rate is locked (the staker is no longer accumulating revenue from the DTF). However, the RSR is still liable to be slashed in the case of a collateral default.
+If an RSR staker decides to unstake their RSR tokens, they’ll have to wait the unstaking delay (by default set to 2 weeks) before receiving their RSR tokens back. While in the delay period, the stRSR to RSR exchange rate is locked (the staker is no longer accumulating revenue from the DTF). However, the RSR is still liable to be slashed in the case of a collateral default.
 
-The reason for a stRSR position needing to be slashable, but not earning revenue, during the un-staking delay period is because the alternative would allow for gaming of the system. If revenue was still being accumulated during the delay period, one could immediately un-stake after staking their RSR (and repeat this process) to circumvent the delay period—ultimately resulting in a less consistent overcollateralization pool.
+The reason for an stRSR position needing to be slashable, but not earning revenue, during the unstaking delay period is because the alternative would allow for gaming of the system. If revenue was still being accumulated during the delay period, one could immediately unstake after staking their RSR (and repeat this process) to circumvent the delay period—ultimately resulting in a less consistent overcollateralization pool.
 
-Un-staking a stRSR position requires two transactions: one to initiate the un-staking process and one at the end of the delay period to receive the RSR tokens back. In between these two transactions the stRSR position is not transferable (as stRSR gets burned upon the first transaction).
+Unstaking an stRSR position requires two transactions: one to initiate the unstaking process and one at the end of the delay period to receive the RSR tokens back. In between these two transactions the stRSR position is not transferable (as stRSR gets burned upon the first transaction).
 
 ## Asset management
 
@@ -94,7 +94,7 @@ After trading, the protocol sends all the newly acquired RSR to the stRSR pool, 
 
 ![](<../../.gitbook/assets/revenue to rsr staker.svg>)
 
-To summarize: the protocol holds collateral in the Backing Manager. Whenever it can, it trades excess collateral to RSR via the RSR Trader. After trading, the RSR get slowly handed out via the stRSR pool—resulting in stRSR becoming more valuable (redeemable for more RSR tokens).
+To summarize: the protocol holds collateral in the Backing Manager. Whenever it can, it trades excess collateral to RSR via the RSR Trader. After trading, the RSR gets slowly handed out via the stRSR pool—resulting in stRSR becoming more valuable (redeemable for more RSR tokens).
 
 The revenue distribution to RSR stakers can be visualized as follows:
 
@@ -109,7 +109,7 @@ When deploying a Yield DTF, the deployer defines what portion of the revenue goe
 
 ![](<../../.gitbook/assets/revenue flow summary.svg>)
 
-The Reserve Yield Protocol can be configured to send (part of the) Yield DTF revenue to any arbitrary Ethereum address (e.g. to compensate the DTF deployer, to build a DTF treasury, etc). The deployer can decide whether to pay the third-party address in DTF tokens or RSR. In either case, the part of the revenue designated to the third-party address can be sent directly from the DTF Trader or the RSR Trader—it does not have to go through the Furnace or stRSR pool first.
+The Reserve Yield Protocol can be configured to send (part of the) Yield DTF revenue to any arbitrary Ethereum address (e.g. to compensate the DTF deployer, to build a DTF treasury, etc.). The deployer can decide whether to pay the third-party address in DTF tokens or RSR. In either case, the part of the revenue designated to the third-party address can be sent directly from the DTF Trader or the RSR Trader—it does not have to go through the Furnace or stRSR pool first.
 
 ## Recapitalization
 
@@ -126,7 +126,7 @@ When the protocol is not fully collateralized, it will sell off any assets it ho
 
 #### Recapitalization through Reserve Rights
 
-If any of a Yield DTF's collateral tokens default, the default flag would be raised by the protocol through the default checking mechanisms explained in the [Monetary Units section](/broken/pages/3aafb33ad9285a046a5b53448d8fdc3120c68ae4#monetary-units). At that point, the protocol will sell as much of the faulty collateral as it can through auctions and use the proceeds, as well as any excess collateral still in the system, to purchase the predefined emergency collateral (see the [Deployment Guide](deployment-guide/)).
+If any of a Yield DTF's collateral tokens default, the default flag would be raised by the protocol through the default checking mechanisms explained in the [Monetary Units section](https://github.com/reserve-protocol/protocol/blob/master/docs/collateral.md). At that point, the protocol will sell as much of the faulty collateral as it can through auctions and use the proceeds, as well as any excess collateral still in the system, to purchase the predefined emergency collateral (see the [Deployment Guide](deployment-guide/)).
 
 If auction proceeds and excess collateral are insufficient to fully collateralize the DTF with the emergency collateral, the protocol will attempt to recapitalize using RSR tokens staked in the stRSR contract. The required amount of RSR tokens will be seized from the stRSR contract and sold for the required amount of emergency collateral through auctions—resulting in an even “haircut” for all RSR stakers.
 
@@ -136,12 +136,12 @@ If auction proceeds and excess collateral are insufficient to fully collateraliz
 
 Auctions are employed whenever an asset within the DTF system is traded for another asset. Possible scenarios include (1) processing DTF revenue and (2) recollateralization following a basket change or a collateral default. The Reserve Yield Protocol supports multiple trading systems; currently it provides support for two auction implementations:
 
-* Dutch Auctions
-* Batch Auctions
+* Dutch auctions
+* Batch auctions
 
 It is anticipated that Dutch auctions will be the preferred trading method, with a fallback to batch auctions available when manipulation is suspected or a more manual trading process is warranted.
 
-### Dutch Auctions
+### Dutch auctions
 
 A Dutch auction is a type of auction where the item starts at a high price, and the price lowers until a buyer accepts the current price. The Reserve Protocol's implementation of Dutch auctions utilizes a 4-phase price reduction mechanism which safeguards against potential price manipulations and accommodates natural price fluctuations during the auction.
 
@@ -171,9 +171,9 @@ The price remains static at the worst price, providing an opportunity for manual
 {% endstep %}
 {% endstepper %}
 
-A Dutch Auction completes when a user places a full-lot bid or when the auction time runs out and a user chooses to close the auction with no bids. At that point either a new Dutch Auction or a Batch Auction can be run for the same assets.
+A Dutch auction completes when a user places a full-lot bid or when the auction time runs out and a user chooses to close the auction with no bids. At that point either a new Dutch auction or a batch auction can be run for the same assets.
 
-### Batch Auctions
+### Batch auctions
 
 Reserve relies on Gnosis' Easy Auction (https://gnosis-auction.eth.link/) for its implementation of batch auctions. Batch auctions match limit orders of buyers and sellers at one fair clearing price by fulfilling the batch of bids above an acceptable minimum price that satisfies the supply being sold.
 

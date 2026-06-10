@@ -8,7 +8,7 @@ All Yield DTFs are fully backed by diversified collateral and can be protected
 
 Yield DTFs are fully onchain financial primitives that deliver yield, security, and accessibility—no intermediaries required.
 
-* Full 1:1 backing & emergency overcollateralisation
+* Full 1:1 backing & emergency overcollateralization
 * Permissionless onchain minting, redemption, & deployment
 * Autonomous revenue auctions executed by dedicated contracts
 * Customizable onchain decentralized governance
@@ -23,7 +23,7 @@ Yield DTFs are fully onchain financial primitives that deliver yield, security, 
   How to launch a new Yield DTF—including collateral selection, configuration, and governance.
 * ⚙️ [Protocol operations](protocol-operations.md)\
   Details of minting/redeeming, collateral management, yield capture, and revenue distribution.
-* 📜 [Smart contracts](/broken/pages/3aafb33ad9285a046a5b53448d8fdc3120c68ae4)\
+* 📜 [Smart contracts](https://github.com/reserve-protocol/protocol/tree/master/docs)\
   A walkthrough of the contracts that govern collateral, issuance, revenue, and governance.
 * 🔐 [Security & audits](security.md)\
   Audit reports, bug‑bounty details, and risk‑mitigation practices that keep DTFs secure and reliable.

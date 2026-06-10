@@ -28,7 +28,7 @@ What are the yield targets (if any) for your DTF?
 {% endstep %}
 
 {% step %}
-### Revenue‑split
+### Revenue split
 
 What share goes to holders, RSR stakers, and other addresses?
 
@@ -60,12 +60,12 @@ If you’re unsure how to answer any or all of these questions, the Reserve comm
 
 ## Pre-launch checklist
 
-Before deployment, make sure each of the following have been specified:
+Before deployment, make sure each of the following has been specified:
 
 * ✅ Deployment network (Ethereum / Base / Arbitrum)
 * ✅ Primary & backup collateral baskets
 * ✅ Revenue split (DTF holders / RSR stakers / others)
 * ✅ Name, ticker, & mandate
-* ✅ DTF Parameters (use presets or tweak [advanced parameters](advanced-parameters.md))
+* ✅ DTF parameters (use presets or tweak [advanced parameters](advanced-parameters.md))
 
 Once each has been chosen, the Yield DTF is ready for launch.

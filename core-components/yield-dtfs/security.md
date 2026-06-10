@@ -36,4 +36,4 @@ Reserve has partnered with Immunefi for establishing a bug bounty program. See a
 
 ### Risks
 
-For a detailed overview of potential risks and risk-mitigation strategies, see the [Risks page](../../risks.md)
+For a detailed overview of potential risks and risk-mitigation strategies, see the [Risks page](../../risks.md).

@@ -1,14 +1,16 @@
-# TVL Fee
+# TVL fee
 
-### TVL Fee Explained <a href="#tvl-fee-explained" id="tvl-fee-explained"></a>
+### TVL fee explained <a href="#tvl-fee-explained" id="tvl-fee-explained"></a>
 
 The TVL fee is expressed as a percentage of the DTF's Total Value Locked and is applied continuously through a compound interest calculation.
 
-#### Technical Implementation <a href="#technical-implementation" id="technical-implementation"></a>
+#### Technical implementation <a href="#technical-implementation" id="technical-implementation"></a>
 
 The TVL fee is implemented using a compound interest formula:
 
-fee=11−feePerSecondsecondsPassed−1fee=1−feePerSecondsecondsPassed1​−1
+```
+fee = (1 / (1 - feePerSecond))^secondsPassed - 1
+```
 
 Where:
 
@@ -21,7 +23,7 @@ This mechanism ensures that:
 * Any view functions account for the TVL fee since the last contract update
 * The fee accumulates continuously rather than at discrete intervals
 
-#### Practical Implications <a href="#practical-implications" id="practical-implications"></a>
+#### Practical implications <a href="#practical-implications" id="practical-implications"></a>
 
 For users and integrators, this means:
 

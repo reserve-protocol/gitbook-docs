@@ -6,7 +6,7 @@ To make asset-backed currency possible, we first needed a platform for bundling 
 
 That same platform can support many kinds of diversified investment products. While the long-term goal is asset-backed currency, the underlying infrastructure is useful today. So Reserve makes this core platform available now, while continuing to prepare the remaining pieces required for asset-backed currency.
 
-That is why the first product line is crypto index products, starting with the assets that already exist and are widely used: native crypto tokens. For example, the CMC20 DTF tracks CoinMarketCap’s top 20 cryptocurrencies by market capitalization, similar to how the S\&P 500 tracks the largest public companies, but for crypto.
+That is why the first product line is crypto index products, starting with the assets that already exist and are widely used: native crypto tokens. For example, the CMC20 DTF tracks CoinMarketCap’s top 20 cryptocurrencies by market capitalization, similar to how the S&P 500 tracks the largest public companies, but for crypto.
 
 These products are called DTFs, Decentralized Token Funds. DTFs are onchain portfolios governed by transparent, predefined rules.
 

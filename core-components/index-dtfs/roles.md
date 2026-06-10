@@ -1,10 +1,10 @@
 # Roles
 
-The [readme](https://github.com/reserve-protocol/reserve-index-dtf/blob/main/README.md) document in the Reserve Index Protocol Github [repository](https://github.com/reserve-protocol/reserve-index-dtf) provides an overview of the protocol's smart contract architecture and implementation details.
+The [readme](https://github.com/reserve-protocol/reserve-index-dtf/blob/main/README.md) document in the Reserve Index Protocol GitHub [repository](https://github.com/reserve-protocol/reserve-index-dtf) provides an overview of the protocol's smart contract architecture and implementation details.
 
-The material below provides a technical tour of the protocol's contracts, bridging the high-level system design with on-chain implementations.
+The material below provides a technical tour of the protocol's contracts, bridging the high-level system design with onchain implementations.
 
-The [Protocol Operations](/broken/pages/5c473e3e6b10ab9e05cbdecf57a08fce196db776) chapter explains how these contracts work together to provide the core functionality of the protocol.
+The [Protocol Operations](overview.md) chapter explains how these contracts work together to provide the core functionality of the protocol.
 
 ## System architecture
 
@@ -29,9 +29,9 @@ Each role is deliberately sandboxed to the smallest set of function calls and pa
 
 The Admin is the primary admin of the DTF. There should really only ever be 1 Admin.
 
-#### Expected Actor
+#### Expected actor
 
-A DAO that operates via the supplied `FolioGovernor.sol` / `TimelockController.sol`  or `ReserveOptimisticGovernor.sol` _/_ `TimelockControllerOptimistic.sol` contracts.
+A DAO that operates via the supplied `FolioGovernor.sol` / `TimelockController.sol` or `ReserveOptimisticGovernor.sol` / `TimelockControllerOptimistic.sol` contracts.
 
 DAO power should be sourced from the `StakingVault.sol` contract. The main reason for this is that the `StakingVault` has the ability to collect multiple different reward tokens and distribute them to stakers pro-rata over time in an MEV-resistant manner. Any ERC20 can be configured as the deposit token for the `StakingVault` at deployment.
 
@@ -46,7 +46,7 @@ DAO power should be sourced from the `StakingVault.sol` contract. The main reaso
 
 #### Limitations
 
-All actions are gated by a timelock (default 48 h). Cannot bypass hard-coded parameter ceilings (e.g., max 10 % annual TVL fee) and cannot seize collateral directly. Changes to governance infrastructure (the  Governor, Timelock, Selector Registry, and Staking Vault) must always go through the standard governance path.
+All actions are gated by a timelock (default 48 h). Cannot bypass hard-coded parameter ceilings (e.g., max 10% annual TVL fee) and cannot seize collateral directly. Changes to governance infrastructure (the Governor, Timelock, Selector Registry, and Staking Vault) must always go through the standard governance path.
 {% endstep %}
 
 {% step %}
@@ -54,7 +54,7 @@ All actions are gated by a timelock (default 48 h). Cannot bypass hard-coded par
 
 The Auction Approver is responsible for configuring auctions for execution.
 
-#### Expected Actor
+#### Expected actor
 
 The same DAO that acts as the Admin should also take on the role of Auction Approver, and the default deployment configuration in Register is exactly this.
 
@@ -83,7 +83,7 @@ The Auction Launcher is responsible for launching an approved auction and provid
 
 A DTF is NOT required to have any Auction Launchers, as auctions can be launched permissionlessly (as long as the DTF and auctions are configured correctly).
 
-#### Expected Actor
+#### Expected actor
 
 Because this role takes on a more ministerial job, it can be held by a trusted multisig or EOA.
 
@@ -98,25 +98,25 @@ While any Auction Launcher should be trusted, they can only modify the pricing i
 #### Limitations
 
 Can tweak start/end prices but only inside the bands approved by the Approver. Cannot extend an auction’s TTL or change the sell/buy tokens.
+{% endstep %}
 
+{% step %}
 ### Optimistic Proposer
 
-&#x20;                                                                                                                                                                                                                 The Optimistic Proposer is responsible for creating fast-path optimistic proposals for routine, pre-approved operations.
+The Optimistic Proposer is responsible for creating fast-path optimistic proposals for routine, pre-approved operations.
 
-#### &#x20; Expected Actor                                                                                                                                                                                                     &#x20;
+#### Expected actor
 
-&#x20;A trusted multisig or EOA that handles day-to-day operational proposals such as launching rebalance auctions or updating a DTF's display name.                                                                                       &#x20;
+A trusted multisig or EOA that handles day-to-day operational proposals such as launching rebalance auctions or updating a DTF's display name.
 
-#### &#x20; Abilities<br>
+#### Abilities
 
-* Create optimistic proposals that skip affirmative voting and execute automatically after the veto period unless vetoed&#x20;
+* Create optimistic proposals that skip affirmative voting and execute automatically after the veto period unless vetoed
 * Only actions whitelisted in the Optimistic Selector Registry can be proposed optimistically
 
-#### &#x20; Limitations    &#x20;
+#### Limitations
 
-
-
-Subject to a _proposal throttle_ limiting the number of optimistic proposals per account within a 24-hour window. Can only propose whitelisted (proposer, target, selector) combinations. Cannot propose changes to  governance infrastructure (Governor, Timelock, Selector Registry, or Staking Vault). The role can be revoked at any time by a Guardian without a governance vote.
+Subject to a _proposal throttle_ limiting the number of optimistic proposals per account within a 24-hour window. Can only propose whitelisted (proposer, target, selector) combinations. Cannot propose changes to governance infrastructure (Governor, Timelock, Selector Registry, or Staking Vault). The role can be revoked at any time by a Guardian without a governance vote.
 
 
 {% endstep %}
@@ -126,7 +126,7 @@ Subject to a _proposal throttle_ limiting the number of optimistic proposals per
 
 The Brand Manager is responsible for updating the Register UI with the correct social media links and token media (logo, banner).
 
-#### Expected Actor
+#### Expected actor
 
 A trusted multisig or EOA that is responsible for the branding and marketing of the DTF.
 
@@ -145,7 +145,7 @@ Limited to UI metadata (links, logos). Has zero permissions over assets, fees, o
 
 The Guardian is responsible for vetoing malicious governance proposals and providing emergency safeguards against compromised optimistic proposers.
 
-#### Expected Actor
+#### Expected actor
 
 A trusted multisig or EOA that is ready and willing to act quickly to prevent malicious governance proposals from being executed or to revoke compromised optimistic proposers.
 

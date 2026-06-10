@@ -1,6 +1,6 @@
 # Fees
 
-### Fees & Revenue <a href="#fees--revenue" id="fees--revenue"></a>
+### Fees & revenue <a href="#fees--revenue" id="fees--revenue"></a>
 
 Index DTFs generate revenue through two primary fee mechanisms:
 

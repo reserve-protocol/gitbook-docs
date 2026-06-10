@@ -1,6 +1,6 @@
 # RSR (Reserve Rights)
 
-RSR is the token that allows anyone to own a share in the value of everything. It enables participation in DTF governance and by returning a portion of protocol fees to RSR holders through token burns.
+RSR is the token that allows anyone to own a share in the value of everything. It enables participation in DTF governance and returns a portion of protocol fees to RSR holders through token burns.
 
 Below is a detailed overview of RSR and how it functions within the Reserve ecosystem.
 
@@ -18,7 +18,7 @@ All the relevant information regarding RSR’s supply, audits, etc. can be found
 
 * [Source code](https://github.com/reserve-protocol/rsr-mainnet)
 * [Live contract](https://etherscan.io/address/0x320623b8e4ff03373931769a31fc52a4e78b5d70#code)
-* [Audit](https://github.com/reserve-protocol/rsr-mainnet/blob/master/audits/solidified/Audit%20Report%20-%20Reserve%20Token%20\[3%20Jan%202022]-2.pdf)
+* [Audit](https://github.com/reserve-protocol/rsr-mainnet/blob/master/audits/solidified/Audit%20Report%20-%20Reserve%20Token%20%5B3%20Jan%202022%5D-2.pdf)
 * [Supply dashboard](https://coinmarketcap.com/currencies/reserve-rights/#token_unlocks)
 * Markets: [CMC](https://coinmarketcap.com/currencies/reserve-rights/markets/) / [CoinGecko](https://www.coingecko.com/en/coins/reserve-rights#markets)
 
@@ -49,11 +49,11 @@ Example calculation (illustrative values):
 
 Reward: $100 \* 0.2 \* (100/1000) = $2
 
-The protocol stores revenue for a particular Yield DTF in different ERC20s (including DTFs). When staking rewards are distributed, it market-buys RSR via auctions with these ERC20s and deposits it into the staking contract to distribute the rewards to RSR stakers. Thus, as rewards are earned, the exchange rate of staked RSR to RSR increases.
+The protocol stores revenue for a particular Yield DTF in different ERC-20s (including DTFs). When staking rewards are distributed, it market-buys RSR via auctions with these ERC-20s and deposits it into the staking contract to distribute the rewards to RSR stakers. Thus, as rewards are earned, the exchange rate of staked RSR to RSR increases.
 
 When RSR is staked, it is actually at stake. Staked RSR can be seized by the protocol in the event of a collateral token default, in order to cover losses for DTF holders. It is seized pro-rata if this happens.
 
-Un-staking RSR comes with a delay, configurable by governance and typically between about 7 and 30 days. This delay ensures staked RSR remains available long enough to cover potential defaults. During the unstaking delay period, the staker does not earn any rewards. Users can cancel unstakings at any time to resume staking and earning rewards.
+Unstaking RSR comes with a delay, configurable by governance and typically between about 7 and 30 days. This delay ensures staked RSR remains available long enough to cover potential defaults. During the unstaking delay period, the staker does not earn any rewards. Users can cancel unstakings at any time to resume staking and earning rewards.
 
 The easiest way to stake your RSR is to use a user interface that interacts with the Reserve Protocol smart contracts, such as the [Reserve app](https://app.reserve.org/). For a tutorial, see [this article](https://blog.reserve.org/how-to-stake-reserve-rights-rsr-f5393fe24573).
 
@@ -77,7 +77,7 @@ For a tutorial on vote-locking, see [this article](https://blog.reserve.org/vote
 
 #### Index Protocol fee burn
 
-Every Index DTF levies platform fees on new mints and on the value locked in the contract. Those fees are swept into a protocol-level contract that automatically uses them to market-buy RSR and then sends the purchased tokens to the burn address, permanently removing them from circulation. Because the burn mechanism lives at the protocol layer, it applies to every Index DTF—regardless of which governance token the fund chooses for vote-locking—so a diverse ecosystem of indexes all contribute to the same burn stream. The percentage of each fee that feeds the burn contract is governed onchain.
+Every Index DTF levies platform fees on new mints and on the value locked in the contract. Those fees are swept into a protocol-level contract that automatically uses them to market-buy RSR and then sends the purchased tokens to the burn address, permanently removing them from circulation. Because the burn mechanism lives at the protocol layer, it applies to every Index DTF—regardless of which governance token the fund chooses for vote-locking—so indexes across a diverse ecosystem all contribute to the same burn stream. The percentage of each fee that feeds the burn contract is governed onchain.
 
 ### Governance
 
@@ -87,7 +87,7 @@ Both Yield DTFs and Index DTFs follow the same community-driven governance flow:
 
 1. Proposal: Any address holding the proposal threshold of voting weight may submit a change.
 2. Vote: Holders cast votes for, against, or abstain (directly or by delegation) over a fixed voting period.
-3. Execution: Successful proposals queue in a time-lock, giving stakeholders and markets time to react before the update is applied onchain.
+3. Execution: Successful proposals queue in a timelock, giving stakeholders and markets time to react before the update is applied onchain.
 
 Anyone can propose changes to modify or improve a DTF.
 
@@ -111,10 +111,10 @@ Default end-to-end timing (8 days total):
 
 In addition to the Owner role, each Yield DTF has assignable roles: Pauser, Short Freezer, Long Freezer, and Guardian. These can be granted by the DTF deployer/owner and put the DTF into protected states in case of an attack, exploit, or bug:
 
-* Paused: All interactions besides redemption, ERC20 functions, staking of RSR, and rewards payout are disabled.
-* Frozen: All interactions besides ERC20 functions and staking of RSR are disabled.
+* Paused: All interactions besides redemption, ERC-20 functions, staking of RSR, and rewards payout are disabled.
+* Frozen: All interactions besides ERC-20 functions and staking of RSR are disabled.
 
-For more details, see [System States + roles](/broken/pages/3aafb33ad9285a046a5b53448d8fdc3120c68ae4#system-states-and-roles).
+For more details, see [System States + roles](https://github.com/reserve-protocol/protocol/blob/master/docs/pause-freeze-states.md).
 
 ### Supply
 

@@ -58,6 +58,6 @@ _When to use:_ Integrations, scripts, advanced use cases
 
 Call `mint` or `redeem` on the DTF proxy. Basket ratios are calculated and enforced onchain.
 
-See the [smart contracts](roles.md) section for contract details and addresses.
+See the [smart contracts](smart-contracts.md) section for contract details and addresses.
 {% endstep %}
 {% endstepper %}
