@@ -12,7 +12,7 @@ The Reserve project’s mission is to make it possible for anyone to own and ear
 
 <details>
 
-<summary><strong>What are Decentralized Token Folios (DTFs)?</strong></summary>
+<summary><strong>What are Decentralized Token Funds (DTFs)?</strong></summary>
 
 DTFs allow anyone to own a share of everything. They are fully asset‑backed ERC‑20 tokens created with Reserve’s open‑source contracts. A DTF can represent anything from an automatically rebalanced yield basket to a broad crypto market index. Anyone can launch, mint, redeem, and govern a DTF permissionlessly onchain.
 

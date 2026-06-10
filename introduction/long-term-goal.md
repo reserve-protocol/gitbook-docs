@@ -8,7 +8,7 @@ That same platform can support many kinds of diversified investment products. Wh
 
 That is why the first product line is crypto index products, starting with the assets that already exist and are widely used: native crypto tokens. For example, the CMC20 DTF tracks CoinMarketCap’s top 20 cryptocurrencies by market capitalization, similar to how the S\&P 500 tracks the largest public companies, but for crypto.
 
-These products are called DTFs, Decentralized Token Folios. DTFs are onchain portfolios governed by transparent, predefined rules.
+These products are called DTFs, Decentralized Token Funds. DTFs are onchain portfolios governed by transparent, predefined rules.
 
 Today, DTFs hold crypto assets. As more assets become tokenized, DTFs can expand to include stocks, bonds, commodities, and real estate. Over time, a single DTF could represent broad exposure to global assets, including equities, fixed income, crypto, and hard assets, all held and transferred as one unit.
 

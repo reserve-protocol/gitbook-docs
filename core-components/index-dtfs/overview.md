@@ -1,6 +1,6 @@
 # Overview
 
-The Reserve Index Protocol provides a lightweight framework for wrapping handfuls to hundreds of ERC-20 tokens into single fungible assets. The protocol enables permissionless access, efficient rebalancing, and customizable onchain governance for Index Decentralized Token Folios (DTFs):
+The Reserve Index Protocol provides a lightweight framework for wrapping handfuls to hundreds of ERC-20 tokens into single fungible assets. The protocol enables permissionless access, efficient rebalancing, and customizable onchain governance for Index Decentralized Token Funds (DTFs):
 
 * **Permissionless NAV-based issuance.** Anyone can mint or redeem directly at real-time asset value—no authorized participants or intermediaries required.
 * **Light footprint & broad asset universe.** No price oracles or collateral plugins, so virtually any ERC-20 (including LSTs, LP tokens, and bridged assets) can be indexed.
