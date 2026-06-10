@@ -7,7 +7,7 @@ The Reserve Yield Protocol allows anyone to create diversified baskets backed by
 * **RSR-backed overcollateralization.** Staked Reserve Rights (RSR) can create a first-loss safety buffer, insulating the basket from collateral shortfalls and aligning incentives through shared fees.
 * **Transparent, token-holder governance.** Parameters like fee rates, collateral mixes, and risk limits are managed onchain, keeping control in the community’s hands.
 
-Together, these capabilities enable anyone to launch a fully collateralised, yield-accruing basket with robust decentralized infrastructure.
+Together, these capabilities enable anyone to launch a fully collateralized, yield-accruing basket with robust decentralized infrastructure.
 
 ![](<../../.gitbook/assets/simple representation of a yield dtf.svg>)
 
@@ -33,10 +33,10 @@ Newly acquired DTF shares are burned, increasing the token’s redeemable value.
 
 Each Yield DTF is governed separately, and each can have an entirely different governance system. Initial Yield DTFs will likely have relatively simple governance systems, which will probably evolve over time. That evolution is up to those that hold power in the initial governance systems.
 
-Governance defines not just the basket to back a Yield DTF, but also an ordered list of emergency collateral. So there's a current basket, and a series of assets that can be deployed to the basket in the case of a default. A collateral token is considered to have defaulted if it's gone down in value more than a defined amount for a long enough time, relative to its reference or target unit (described in the Monetary Units section: https://reserve.org/protocol/yield\_dtfs/smart\_contracts/#monetary-units).
+Governance defines not just the basket to back a Yield DTF, but also an ordered list of emergency collateral. So there's a current basket, and a series of assets that can be deployed to the basket in the case of a default. A collateral token is considered to have defaulted if it's gone down in value more than a defined amount for a long enough time, relative to its reference or target unit (described in the Monetary Units section of the [collateral documentation](https://github.com/reserve-protocol/protocol/blob/master/docs/collateral.md)).
 
-Governance can update the basket configuration regularly. When the current basket is updated, or in the case of a default, the protocol makes onchain trades to reach the new basket composition. This trading is modularized so that it can happen in different ways over time as onchain liquidity evolves. Currently, trading plugins support Gnosis Auctions (batch auctions) and Dutch Auctions, but in the future additional methods can be incorporated.
+Governance can update the basket configuration regularly. When the current basket is updated, or in the case of a default, the protocol makes onchain trades to reach the new basket composition. This trading is modularized so that it can happen in different ways over time as onchain liquidity evolves. Currently, trading plugins support Gnosis Auctions (batch auctions) and Dutch auctions, but in the future additional methods can be incorporated.
 
 {% hint style="info" %}
-As with any smart contract application, the actual behavior may vary from the intended behavior, and it's safest to wait for an application to be in use for a long period of time before trusting it to behave as expected. This overview and subsequent documentation describes the intended behavior.
+As with any smart contract application, the actual behavior may vary from the intended behavior, and it's safest to wait for an application to be in use for a long period of time before trusting it to behave as expected. This overview and subsequent documentation describe the intended behavior.
 {% endhint %}

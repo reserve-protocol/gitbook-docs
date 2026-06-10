@@ -116,7 +116,7 @@ In the Reserve app UI, click **More** and use the built‑in **Bridge** flow. Se
 
 The contract addresses for all DTFs are available in the Reserve app. Navigate to the DTF page you want, then find the contract address(es) featured in the header alongside the DTF’s name.
 
-For more details, see the Smart Contracts sections of the [Yield DTF](/broken/pages/3aafb33ad9285a046a5b53448d8fdc3120c68ae4) and [Index DTF](core-components/index-dtfs/roles.md) docs.
+For more details, see the Smart Contracts sections of the [Yield DTF](https://github.com/reserve-protocol/protocol/tree/master/docs) and [Index DTF](core-components/index-dtfs/smart-contracts.md) docs.
 
 </details>
 
@@ -142,7 +142,7 @@ For detailed walkthroughs, see the minting and redemption docs for [Yield DTFs](
 
 <summary>I want to deploy my own DTF. Where do I start?</summary>
 
-**Yield DTFs:** Start by reviewing the [Official Documentation](/broken/pages/5ebb2cf6c5c2b93d1726db9c59a87e1adbc2b48a), the [Deployment Guide](core-components/yield-dtfs/deployment-guide/), and the [YouTube Tutorial](https://www.youtube.com/watch?v=sf0PuYpVWRU\&ab_channel=Reserve), where you can find everything related to the process of deploying your DTF. Then you can visit the [Reserve app](https://app.reserve.org/deploy/yield-dtf) to deploy.
+**Yield DTFs:** Start by reviewing the [Official Documentation](core-components/yield-dtfs/README.md), the [Deployment Guide](core-components/yield-dtfs/deployment-guide/), and the [YouTube Tutorial](https://www.youtube.com/watch?v=sf0PuYpVWRU&ab_channel=Reserve), where you can find everything related to the process of deploying your DTF. Then you can visit the [Reserve app](https://app.reserve.org/deploy/yield-dtf) to deploy.
 
 **Index DTFs:** The Index DTF deployment UI is still under construction. If you want to be first in line to create an Index DTF, put down your contact information [here](https://app.reserve.org/deploy/index-dtf).
 
@@ -152,7 +152,7 @@ For detailed walkthroughs, see the minting and redemption docs for [Yield DTFs](
 
 <summary>How do I list a DTF in the Reserve app UI?</summary>
 
-For your Yield DTF to be listed in Reserve app, you can create a pull request in this [GitHub repository](https://github.com/reserve-protocol/rtokens).
+For your Yield DTF to be listed in the Reserve app, you can create a pull request in this [GitHub repository](https://github.com/reserve-protocol/rtokens).
 
 Index DTF listing coming soon.
 
@@ -202,7 +202,7 @@ Collateral baskets are tokenized onchain, with the smart contract risk diversifi
 
 <summary>What are the risks of using the Reserve platform and DTFs?</summary>
 
-Smart contracts, depegs, counterparty and governance risks are all applicable to the Reserve platform. Read our [Risks documentation](/broken/pages/436822be3fbc4decd709f4dd6febda66acb7dc9a) or [Comprehensive Risk Mitigation at Reserve Protocol](https://blog.reserve.org/comprehensive-risk-mitigation-at-reserve-protocol-68a724e9989e) to dive deeper.
+Smart contracts, depegs, counterparty and governance risks are all applicable to the Reserve platform. Read our [Risks documentation](risks.md) or [Comprehensive Risk Mitigation at Reserve Protocol](https://blog.reserve.org/comprehensive-risk-mitigation-at-reserve-protocol-68a724e9989e) to dive deeper.
 
 </details>
 
@@ -210,7 +210,7 @@ Smart contracts, depegs, counterparty and governance risks are all applicable to
 
 <summary>What are collateral plugins and why are they important?</summary>
 
-In the Reserve Yield Protocol, collateral plugins wrap ERC-20 tokens into assets that can back Yield DTFs. Without them, native ERC-20 tokens are incompatible to collateralize Yield DTFs. [Learn more about collateral plugins](https://github.com/reserve-protocol/protocol/blob/master/docs/collateral.md).
+In the Reserve Yield Protocol, collateral plugins wrap ERC-20 tokens into assets that can back Yield DTFs. Without them, native ERC-20 tokens cannot be used to collateralize Yield DTFs. [Learn more about collateral plugins](https://github.com/reserve-protocol/protocol/blob/master/docs/collateral.md).
 
 The Reserve Index Protocol does not require collateral plugins, and natively supports most ERC-20s.
 
@@ -232,7 +232,7 @@ For **Index DTFs**, nearly any ERC-20 token can be used, no collateral plugin re
 
 <summary>Are DTFs algorithmically backed?</summary>
 
-No, DTFs are not algorithmically backed. DTFs are fully asset backed 1:1 with exogenous collateral (i.e., external, unrelated assets) that, via smart contracts, are able to be redeemed at any time for the underlying assets.
+No, DTFs are not algorithmically backed. DTFs are fully asset-backed 1:1 with exogenous collateral (i.e., external, unrelated assets) that, via smart contracts, are able to be redeemed at any time for the underlying assets.
 
 </details>
 
@@ -248,9 +248,9 @@ Revenue distribution for DTFs is entirely flexible. From the revenue that is bei
 
 <summary>Where does DTF revenue come from?</summary>
 
-**Yield DTFs:** Deposits in DeFi protocols such as Aave, Compound, Uniswap and Convex provide the depositor a receipt token that accrues yield. When these receipt tokens are used in collateral baskets for yield DTFs, the protocol’s onchain operations harvest this yield to distribute to DTF stakeholders. This is performed 100% onchain. Learn more about [Yield DTF revenue handling](core-components/yield-dtfs/protocol-operations.md#revenue-handling).
+**Yield DTFs:** Deposits in DeFi protocols such as Aave, Compound, Uniswap and Convex provide the depositor a receipt token that accrues yield. When these receipt tokens are used in collateral baskets for Yield DTFs, the protocol’s onchain operations harvest this yield to distribute to DTF stakeholders. This is performed 100% onchain. Learn more about [Yield DTF revenue handling](core-components/yield-dtfs/protocol-operations.md#revenue-handling).
 
-**Index DTFs:** Two fee streams generate revenue for Index DTFs. A TVL fee, akin to a management fee, is assessed block-by-block as a percentage (max. 10% annuallized) of the token's TVL. A mint fee (max. 5%) is assessed each time a DTF is minted. This is performed 100% onchain. Learn more about [Index DTF fees](/broken/pages/5c473e3e6b10ab9e05cbdecf57a08fce196db776).
+**Index DTFs:** Two fee streams generate revenue for Index DTFs. A TVL fee, akin to a management fee, is assessed block-by-block as a percentage (max. 10% annualized) of the token's TVL. A mint fee (max. 5%) is assessed each time a DTF is minted. This is performed 100% onchain. Learn more about [Index DTF fees](core-components/index-dtfs/fees/README.md).
 
 </details>
 
@@ -258,7 +258,7 @@ Revenue distribution for DTFs is entirely flexible. From the revenue that is bei
 
 <summary>How do Yield DTFs harvest and reflect yield in price?</summary>
 
-As underlying assets appreciate or rewards are earned, more DTF tokens can either be minted or obtained through revenue auctions. These tokens are subsequently sent to the [Furnace](/broken/pages/b4b8fbc163cdd7a465d1a2695beca2d92e218df8#s-result:~:text=After%20trading%2C%20both%20the%20newly%20minted%20RTokens%20X%20and%20the%20newly%20traded%20RTokens%20X%20will%20be%20consolidated%20in%20the%20Furnace.%20The%20Furnace%20is%20responsible%20for%20melting%20\(%3D%20slowly%20burning\)%20thes) and melted. As a result, Yield DTFs become redeemable for more of their base currency unit. DTFs that accrue revenue to their holders do not rebase, which means that yield-bearing dollar-denominated DTFs (for example) often resemble [flatcoins](https://decrypt.co/155775/flatcoins-new-thing-on-the-horizon-coinbase-ceo-brian-armstrong), rather than stablecoins. That is, their price will continue to increase over time ($1.00 → $1.10 → $1.20, and so on). Learn more about [RToken revenue handling](core-components/yield-dtfs/protocol-operations.md#revenue-handling).
+As underlying assets appreciate or rewards are earned, more DTF tokens can either be minted or obtained through revenue auctions. These tokens are subsequently sent to the [Furnace](core-components/yield-dtfs/protocol-operations.md#revenue-distribution-to-yield-dtf-holders) and melted. As a result, Yield DTFs become redeemable for more of their base currency unit. DTFs that accrue revenue to their holders do not rebase, which means that yield-bearing dollar-denominated DTFs (for example) often resemble [flatcoins](https://decrypt.co/155775/flatcoins-new-thing-on-the-horizon-coinbase-ceo-brian-armstrong), rather than stablecoins. That is, their price will continue to increase over time ($1.00 → $1.10 → $1.20, and so on). Learn more about [RToken revenue handling](core-components/yield-dtfs/protocol-operations.md#revenue-handling).
 
 </details>
 
@@ -268,7 +268,7 @@ As underlying assets appreciate or rewards are earned, more DTF tokens can eithe
 
 For both Yield and Index DTFs, governance determines how protocol revenue is routed—whether to RSR stakers, vote-lockers, DTF holders, or elsewhere.
 
-**Yield DTFs**: Once a threshold value has been met, “revenue auctions” sell accrued rewards to buy RSR, which is subsequently distributed to RSR stakers. This process increases the redemption ratio of the staked RSR token (e.g. eusdRSR) relative to plain RSR. Learn more about [Yield DTF revenue handling](/broken/pages/b62744b9355ad100e4f020bd6edd2c222c8f7f04#revenue-handling).
+**Yield DTFs**: Once a threshold value has been met, “revenue auctions” sell accrued rewards to buy RSR, which is subsequently distributed to RSR stakers. This process increases the redemption ratio of the staked RSR token (e.g. eusdRSR) relative to plain RSR. Learn more about [Yield DTF revenue handling](core-components/yield-dtfs/protocol-operations.md#revenue-handling).
 
 **Index DTFs**: Mint fees are charged at issuance and TVL fees accrue continuously. Both are collected in the DTF token itself and routed to governance-selected recipients after a platform fee is applied.
 
@@ -276,13 +276,23 @@ For both Yield and Index DTFs, governance determines how protocol revenue is rou
 
 <details>
 
-<summary>How are DTF pegs maintained and what anti-bank run mechanisms are built-in?</summary>
+<summary>How are DTF pegs maintained and what anti-bank run mechanisms are built in?</summary>
 
 DTF pegs are maintained through permissionless onchain minting and redemption, allowing anyone to arbitrage price discrepancies between the DTF token and its underlying collateral’s net asset value.
 
 Anti-bank run mechanisms include verifiable reserves, predictable recovery, overcollateralization, and proportional funds distribution, all of which are 100% onchain.
 
-DTFs are not algorithmic (no recursive endogenous collateral)DTFs do not have the recursive, negative feedback loops found in certain algorithmic stablecoins because DTFs are not minted from self-referential endogenous collateral. DTFs are 1:1 backed with exogenous assets with verifiable reserves onchain.RSR overcollateralization for Yield DTFsYield DTFs can also employ RSR overcollateralization to promote peg protection. In the event that one of the exogenous assets in a Yield DTF basket drops by 10%, 20% or even 100%, the protocol would slash RSR stakers and sell the failing collateral to buy the pre-programmed emergency collateral basket. Briefly the DTF would be below peg, yet the 100% redemption outcome would be predictable and verifiable given the onchain overcollateralization. This mechanism was battle-tested during the Silicon Valley Bank run that played a role in the March 9, 2023 depeg of USDC — learn more about Yield DTFs’ autonomous self healing.Proportional distributions in catastrophic defaultsShould there be a case where Yield DTF collateral defaults and the RSR overcollateralization pool is spent with net collateral at < 100% of target price, the affected holders receive proportional distributions rather than first-come-first-served exits, eliminating bad debt without causing a hyperinflationary event.
+**DTFs are not algorithmic (no recursive endogenous collateral)**
+
+DTFs do not have the recursive, negative feedback loops found in certain algorithmic stablecoins because DTFs are not minted from self-referential endogenous collateral. DTFs are 1:1 backed with exogenous assets with verifiable reserves onchain.
+
+**RSR overcollateralization for Yield DTFs**
+
+Yield DTFs can also employ RSR overcollateralization to promote peg protection. In the event that one of the exogenous assets in a Yield DTF basket drops by 10%, 20% or even 100%, the protocol would slash RSR stakers and sell the failing collateral to buy the pre-programmed emergency collateral basket. Briefly the DTF would be below peg, yet the 100% redemption outcome would be predictable and verifiable given the onchain overcollateralization. This mechanism was battle-tested during the Silicon Valley Bank run that played a role in the March 9, 2023 depeg of USDC — learn more about Yield DTFs’ autonomous self-healing.
+
+**Proportional distributions in catastrophic defaults**
+
+Should there be a case where Yield DTF collateral defaults and the RSR overcollateralization pool is spent with net collateral at < 100% of target price, the affected holders receive proportional distributions rather than first-come-first-served exits, eliminating bad debt without causing a hyperinflationary event.
 
 </details>
 
@@ -292,9 +302,9 @@ DTFs are not algorithmic (no recursive endogenous collateral)DTFs do not have th
 
 The governance process follows a transparent and democratic approach. Stakers and vote-lockers can propose, discuss, and vote on changes to the DTF(s) they're staked or vote-locked on.
 
-&#x20;                                                                                                                                                                                                               For Yield DTFs, Governor Anastasius is the protocol's recommended governor implementation.                                                                                                                         &#x20;
+For Yield DTFs, Governor Anastasius is the protocol's recommended governor implementation.
 
-For Index DTFs, the Reserve Optimistic Governor provides a dual-path governance model. Standard proposals follow the traditional flow — proposal, voting delay, active voting, timelock queue, and execution — and  are used for high-impact decisions like modifying fees or basket composition. Optimistic proposals skip affirmative voting entirely; once proposed, they enter a short veto window and execute automatically unless enough token holders vote Against to meet the veto threshold. If vetoed, the proposal automatically transitions into a standard proposal for full community deliberation. Only whitelisted actions can be proposed optimistically, and governance infrastructure changes are permanently blocked from the fast path.
+For Index DTFs, the Reserve Optimistic Governor provides a dual-path governance model. Standard proposals follow the traditional flow — proposal, voting delay, active voting, timelock queue, and execution — and are used for high-impact decisions like modifying fees or basket composition. Optimistic proposals skip affirmative voting entirely; once proposed, they enter a short veto window and execute automatically unless enough token holders vote Against to meet the veto threshold. If vetoed, the proposal automatically transitions into a standard proposal for full community deliberation. Only whitelisted actions can be proposed optimistically, and governance infrastructure changes are permanently blocked from the fast path.
 
 To participate in the governance of a specific DTF, go to the Reserve app. Select the DTF you wish to govern and select the Governance section. You will be able to view all the governance proposals that have been submitted for the DTF. If there is any active proposal, you can select it and vote for or against it.
 

@@ -6,9 +6,9 @@ The Reserve project consists of a set of protocols, products, contributors, and 
 
 ### Reserve’s protocols
 
-The Reserve Index protocol and Reserve Yield protocol are the foundation that gives access to the value of everything.
+The Reserve Index Protocol and Reserve Yield Protocol are the foundation that gives access to the value of everything.
 
-They defines how assets are bundled, backed, redeemed, and transferred onchain. Assets governed by the protocols follow shared, transparent sets of rules, making it possible to hold diversified value directly. Everything in the Reserve ecosystem builds on this foundation.
+They define how assets are bundled, backed, redeemed, and transferred onchain. Assets governed by the protocols follow shared, transparent sets of rules, making it possible to hold diversified value directly. Everything in the Reserve ecosystem builds on this foundation.
 
 ### DTFs (Decentralized Token Funds)
 
@@ -21,17 +21,17 @@ Today, DTFs are built from crypto assets. Over time, as more assets are tokenize
 
 ### RSR (Reserve Rights)
 
-RSR is the token that allows anyone to own a share in the value of everything. It enables participation in DTF governance and by returning a portion of protocol fees to RSR holders through token burns.
+RSR is the token that allows anyone to own a share in the value of everything. It enables participation in DTF governance and returns a portion of protocol fees to RSR holders through token burns.
 
 ***
 
-## Core Contributors
+## Core contributors
 
 The Reserve project is supported by a set of core contributors, each focused on advancing the shared belief that everyone should be able to own and earn their share of the value of everything.
 
 ### Best Friend Finance (BFF)
 
-Best Friend Finance is the distribution arm of the Reserve Project. It designs, builds, and distributes everyday financial products, including UGLYCASH, all powered by Reserve’s financial center and backed by the Reserve Protocol. Its role is to make asset-backed money understandable and usable through onsumer-facing products.
+Best Friend Finance is the distribution arm of the Reserve project. It designs, builds, and distributes everyday financial products, including UGLYCASH, all powered by Reserve’s financial center and backed by the Reserve Protocol. Its role is to make asset-backed money understandable and usable through consumer-facing products.
 
 ### Confusion Capital (CC)
 

@@ -38,6 +38,6 @@ When to use: Integrations, scripts, advanced use cases.
 
 * Call `issue(amount)` or `redeem(amount)` on the DTF proxy. Basket ratios are calculated and enforced onchain.
 
-See the [smart contracts](/broken/pages/3aafb33ad9285a046a5b53448d8fdc3120c68ae4) section for contract details and addresses.
+See the [smart contracts](https://github.com/reserve-protocol/protocol/tree/master/docs) section for contract details and addresses.
 {% endstep %}
 {% endstepper %}

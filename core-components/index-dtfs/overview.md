@@ -73,20 +73,20 @@ The Reserve Optimistic Governor provides a dual-path model: a **standard path** 
 ### How it works in practice
 
 * **Standard proposals** are created, voted on, and executed entirely onchain, with timelocks to ensure time to react. This path is used for high-impact changes such as fees, basket composition, and role assignments.
-* **Optimistic proposals** skip affirmative voting and execute automatically after a short veto window, unless enough token holders vote Against. This path is used for routine operations like launching rebalance auctions.                                                                                                                                                                                          &#x20;
-* Every proposal, vote, and execution is permanently recorded on-chain, giving users, auditors, and regulators a transparent change history.
+* **Optimistic proposals** skip affirmative voting and execute automatically after a short veto window, unless enough token holders vote Against. This path is used for routine operations like launching rebalance auctions.
+* Every proposal, vote, and execution is permanently recorded onchain, giving users, auditors, and regulators a transparent change history.
 
-&#x20;                                                                                                                                                                                                                       Because governance is modular and token-agnostic, one Index DTF might run a simple one-token DAO, while another could delegate voting power across multiple stakeholders or adopt more sophisticated vote-lock mechanics over time.    &#x20;
+Because governance is modular and token-agnostic, one Index DTF might run a simple one-token DAO, while another could delegate voting power across multiple stakeholders or adopt more sophisticated vote-lock mechanics over time.
 
 {% hint style="warning" %}
-As with any smart contract application, the actual behavior may vary from the intended behavior, and it's safest to wait for an application to be in use for a long period of time before trusting it to behave as expected. This overview and subsequent documentation describes the intended behavior.
+As with any smart contract application, the actual behavior may vary from the intended behavior, and it's safest to wait for an application to be in use for a long period of time before trusting it to behave as expected. This overview and subsequent documentation describe the intended behavior.
 {% endhint %}
 
 ## Anyone can create an RToken
 
-In a similar way as how anyone can create a new trading pair on [Uniswap](/broken/pages/116efdd658a37268811feabe75d93d9ced9961e0), anyone can permissionlessly create a new Reserve stablecoin (RToken) by interacting with Reserve Protocol’s smart contracts. The protocol applies a system of [factory smart contracts](/broken/pages/116efdd658a37268811feabe75d93d9ced9961e0) that allows anyone to deploy their own smart contract instance.
+In a similar way as how anyone can create a new trading pair on [Uniswap](https://uniswap.org), anyone can permissionlessly create a new Reserve stablecoin (RToken) by interacting with Reserve Protocol’s smart contracts. The protocol applies a system of [factory smart contracts](smart-contracts.md) that allows anyone to deploy their own smart contract instance.
 
-Creating an RToken can be done either by interacting directly with the [Reserve Protocol’s smart contracts](/broken/pages/116efdd658a37268811feabe75d93d9ced9961e0) or any user interface that gets built on top of it. The first user interface for these smart contracts will be released by [ABC Labs](https://www.abclabs.co/) the company that's leading protocol development. Besides the creation of RTokens, this user interface will also support exploring usage and stats related to RTokens, RToken minting & redeeming, and RSR staking.
+Creating an RToken can be done either by interacting directly with the [Reserve Protocol’s smart contracts](smart-contracts.md) or any user interface that gets built on top of it. The first user interface for these smart contracts will be released by [ABC Labs](https://www.abclabs.co/), the company that's leading protocol development. Besides the creation of RTokens, this user interface will also support exploring usage and stats related to RTokens, RToken minting & redeeming, and RSR staking.
 
 **NOTE:** The Reserve Register does not yet support permissionless creation of Index DTFs.
 
@@ -95,7 +95,7 @@ Creating an RToken can be done either by interacting directly with the [Reserve 
 The following types of ERC20s are not supported to be used directly in an Index DTF. These tokens should be wrapped into a compatible ERC20 token to be used within the protocol.
 
 * Tokens that take a "fee" on transfer
-* Tokens that do not expose the decimals() in their interface. Decimals should always be between 1 and 27.
+* Tokens that do not expose the decimals() function in their interface. Decimals should always be between 1 and 27.
 * ERC777 tokens which could allow reentrancy attacks
 * Tokens with multiple entry points (multiple addresses)
 * Tokens that do not adhere to the ERC20 standard in general

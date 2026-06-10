@@ -13,7 +13,7 @@ The Reserve team is aware of these tradeoffs and has prioritized security by und
 | Trail of Bits  | Apr 2025 | Protocol | [Report](https://github.com/reserve-protocol/reserve-index-dtf/blob/main/audits/trail-of-bits/2025-04-reserve-folio-solidity-securityreview.pdf) |
 | Pashov         | Jun 2025 | Protocol | [Report](https://github.com/reserve-protocol/reserve-index-dtf/blob/main/audits/pashov/reserve-security-review_2025-06-02.pdf)                   |
 
-In addition to performing an initial full audit on the Index DTF protocol, Trust Security is the main security partner for ABC Labs, and reviews every piece of solidity code before it is deployed onchain to be used in production.  Their depth of knowledge of the Index and Yield protocols is matched only by that of the core developers.
+In addition to performing an initial full audit on the Index DTF protocol, Trust Security is the main security partner for ABC Labs, and reviews every piece of Solidity code before it is deployed onchain to be used in production. Their depth of knowledge of the Index and Yield protocols is matched only by that of the core developers.
 
 ## Bug bounty
 
@@ -25,5 +25,5 @@ Reserve has partnered with Cantina for its bug bounty program. See additional de
 
 ## Risks
 
-For a detailed overview of potential risks and risk-mitigation strategies, see the [Risks page](../../risks.md)
+For a detailed overview of potential risks and risk-mitigation strategies, see the [Risks page](../../risks.md).
 

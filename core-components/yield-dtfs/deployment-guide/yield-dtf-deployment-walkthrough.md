@@ -32,7 +32,7 @@ A DTF's name, ticker, and mandate are important as unique identifiers which serv
 
 Now it’s time to define what collateral assets back your DTF, and in what proportions. Emergency collateral can also be defined as fallbacks in the event any primary collateral defaults.
 
-A number of collateral plugins can be employed “out-of-the-box.” If a desired collateral plugin doesn’t already exist, developers may create and deploy custom plugins: https://reserve.org/protocol/yield\_dtfs/deployment\_guide/ui\_walkthrough/#appendix
+A number of collateral plugins can be employed “out-of-the-box.” If a desired collateral plugin doesn’t already exist, developers may create and deploy custom plugins — see the [appendix](#appendix) below.
 
 * Under “Primary Basket,” click the “Add to basket” button
 * Select your desired collateral assets. In this example, a number of yield bearing stablecoin positions will be used.
@@ -48,7 +48,7 @@ Note: In order to mint the DTF after it’s created, deployers must either have 
 {% endstep %}
 
 {% step %}
-### Configure Backup Basket
+### Configure backup basket
 
 It’s generally recommended to configure Emergency Collateral in a backup basket. These are defined separately for each target unit.
 
@@ -60,7 +60,7 @@ It’s generally recommended to configure Emergency Collateral in a backup baske
 {% step %}
 ### Configure parameters
 
-This section discusses what each configuration parameter does, and why it’s important. For more information on each parameter, see Advanced Parameters: https://reserve.org/protocol/yield\_dtfs/deployment\_guide/parameters/
+This section discusses what each configuration parameter does, and why it’s important. For more information on each parameter, see [Advanced parameters](advanced-parameters.md).
 
 Note that the Reserve app provides sensible defaults and unless you’re an advanced user, you can deploy your RToken using the defaults and skip this section.
 
@@ -85,7 +85,7 @@ Note that the Reserve app provides sensible defaults and unless you’re an adva
 | ----------------------- | --------------: | ---------------------------------------------------------------------------------------------------- |
 | Short‑freeze duration   |          3 days | One‑shot short freeze window                                                                         |
 | Long‑freeze duration    |          1 week | Long freeze window (6 charges)                                                                       |
-| Withdrawal leak         |              5% | Max RSR that can exit StRSR before status refresh                                                    |
+| Withdrawal leak         |              5% | Max RSR that can exit stRSR before status refresh                                                    |
 | Unstaking delay         |         2 weeks | Wait after unstake before RSR can be withdrawn                                                       |
 | Reward ratio            | 7‑day half‑life | Exponential drip rate of accrued rewards                                                             |
 | Minimum trade volume    |       $1000 USD | Prevents micro‑auctions on dust balances during rebalancing (not during revenue processing auctions) |
@@ -94,7 +94,7 @@ Note that the Reserve app provides sensible defaults and unless you’re an adva
 Additional details on trading delay(s)
 
 * The trading delay defines how many seconds should pass after the basket has been changed before a trade can be opened.
-* A collateral asset can instantly default if one of the invariants of the underlying DeFi protocol breaks. If that would happen, and we would not apply a trading delay, the protocol would react instantly by opening an auction. This would give only auctionLength seconds for people to bid on the auction, making it very possible for the protocol to lose value due to slippage.
+* A collateral asset can instantly default if one of the invariants of the underlying DeFi protocol breaks. If that happened, and we did not apply a trading delay, the protocol would react instantly by opening an auction. This would give only auctionLength seconds for people to bid on the auction, making it very possible for the protocol to lose value due to slippage.
 * The trading delay parameter may only be needed in the early days — once a robust market of MEV searchers is established this can likely be set to zero.
 {% endstep %}
 
@@ -105,23 +105,23 @@ Once you’re satisfied with your DTF’s name, basket composition, and other pa
 
 ![](../../../.gitbook/assets/08_deploy.png)
 
-Congratulations — you have successfully deployed your Yield DTF. However, no governance system has yet been configured. Continue reading to learn how to set up decentralized governance on your DTF using Governor Anastasius: https://reserve.org/protocol/reserve\_rights\_rsr/#governor-anastasius
+Congratulations — you have successfully deployed your Yield DTF. However, no governance system has yet been configured. Continue reading to learn how to set up decentralized governance on your DTF using [Governor Anastasius](../../rsr-reserve-rights.md#governor-anastasius).
 
 Note that if you aren’t yet ready to set up governance, you can leave your RToken paused and return later to finish.
 {% endstep %}
 
 {% step %}
-### Set up Governance
+### Set up governance
 
 * If you wish to use Governor Anastasius (default; recommended by Reserve), ensure the corresponding toggle is active.
 
 ![](../../../.gitbook/assets/09_alexios.png)
 
-* Carefully select addresses for Guardian, Pauser, and Freezer roles. See roles documentation: https://reserve.org/protocol/yield\_dtfs/smart\_contracts/?search=roles#s-result
+* Carefully select addresses for Guardian, Pauser, and Freezer roles. See the [roles documentation](https://github.com/reserve-protocol/protocol/blob/master/docs/system-design.md).
 
 Addresses for each role are separate from each other and from the Guardian. However, often the Guardian address is also included in the other three roles.
 
-Next, configure the ‘Governance parameters’
+Next, configure the ‘Governance parameters’.
 
 Note that the Reserve app provides sensible defaults and unless you’re an advanced user, you can deploy Governance using the defaults and skip this section.
 
@@ -151,7 +151,7 @@ Once you’ve made a selection, click “Deploy Governance”. Once that transac
 
 All of the DTF’s relevant contracts can be viewed under the “Related Contracts” section of the UI. The DTF is now ready to accept collateral assets and be used throughout the ecosystem.
 
-The deployment process is complete. Ongoing attention and marketing are required for DTFs to distinguish themselves in a crowded marketplace and truly flourish. Check out the post‑launch playbook: https://reserve.org/protocol/yield\_dtfs/deployment\_guide/post\_launch\_playbook/
+The deployment process is complete. Ongoing attention and marketing are required for DTFs to distinguish themselves in a crowded marketplace and truly flourish. Check out the [post‑launch playbook](post-launch-playbook.md).
 
 Join the [Reserve Telegram channel](https://t.me/reservecurrency) to share knowledge with and learn from other DTF deployers.
 
@@ -179,7 +179,7 @@ The following types of ERC-20 tokens are not supported to be used directly in a 
 
 * Rebasing tokens that return yields by increasing the balances of users
 * Tokens that take a "fee" on transfer
-* Tokens that do not expose the `decimals()` in their interface (decimals should be between 1 and 18)
+* Tokens that do not expose the `decimals()` function in their interface (decimals should be between 1 and 18)
 * ERC777 tokens which could allow reentrancy attacks
 * Tokens with multiple entry points (multiple addresses)
 * Tokens that do not adhere to the ERC-20 standard in general

@@ -16,7 +16,7 @@ Ensure the wider community hears about the new Yield DTF and understands its val
 Listing the DTF where users already trade and borrow maximizes utility and stickiness.
 
 * Seed a primary liquidity pool on a leading AMM (e.g., Curve, Uniswap, Aerodrome)
-* Submit listing proposals to at least one onchain money market (e.g., Morpho, AAVE, Compound)
+* Submit listing proposals to at least one onchain money market (e.g., Morpho, Aave, Compound)
 * Co-incentivize early liquidity with integration platforms and partners
 * Monitor pool depth and spreads; consider strategies to remedy liquidity issues
 
@@ -26,4 +26,4 @@ Reliable, transparent data builds trust and helps investors track performance.
 
 * Apply for listings on CoinGecko and CoinMarketCap—prepare ticker, logo, & a short description
 * If applicable, publish data to Dune Analytics, The Graph, and/or DefiLlama
-* Set up automated alerts (e.g., on Discord or Twitter/X) for governance proposals or status changes
+* Set up automated alerts (e.g., on Discord or X/Twitter) for governance proposals or status changes

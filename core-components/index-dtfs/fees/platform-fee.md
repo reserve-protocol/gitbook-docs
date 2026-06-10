@@ -1,6 +1,6 @@
-# Platform Fee
+# Platform fee
 
-### Platform Fee <a href="#platform-fee" id="platform-fee"></a>
+### Platform fee <a href="#platform-fee" id="platform-fee"></a>
 
 A platform fee is applied to both the TVL and Mint fees before they are distributed to recipients.
 
@@ -9,13 +9,13 @@ This platform fee is defaulted to 50%, but can be set per-DTF, and is recalculat
 | **TVL**                | **Platform Fee** |
 | ---------------------- | ---------------- |
 | TVL < $100m            | 50%              |
-| 100m\<TVL<100m\<TVL<1b | 40%              |
-| 1b\<TVL<1b\<TVL<10b    | 30%              |
-| 10b\<TVL<10b\<TVL<100b | 20%              |
-| 100b\<TVL<100b\<TVL<1T | 10%              |
+| $100m < TVL < $1b | 40%              |
+| $1b < TVL < $10b    | 30%              |
+| $10b < TVL < $100b | 20%              |
+| $100b < TVL < $1T | 10%              |
 | $1T < TVL              | 5%               |
 
-#### Example Calculation <a href="#example-calculation" id="example-calculation"></a>
+#### Example calculation <a href="#example-calculation" id="example-calculation"></a>
 
 A DTF with $3.1 billion in TVL and a TVL fee of 1% would have its platform fee calculated as:
 
@@ -25,11 +25,11 @@ A DTF with $3.1 billion in TVL and a TVL fee of 1% would have its platform fee c
 
 This means 33.5% of the collected fees would go to the platform, and the remaining 66.5% would be distributed among fee recipients.
 
-#### Technical Implementation <a href="#technical-implementation" id="technical-implementation"></a>
+#### Technical implementation <a href="#technical-implementation" id="technical-implementation"></a>
 
 The platform fee is supplied to DTFs via a Platform Fee Registry contract, which is controlled by the platform owner multisig. This registry also provides DTFs with the current platform fee recipient address.
 
-### Fee Parameters and Constraints <a href="#fee-parameters-and-constraints" id="fee-parameters-and-constraints"></a>
+### Fee parameters and constraints <a href="#fee-parameters-and-constraints" id="fee-parameters-and-constraints"></a>
 
 The following parameters apply to all Index DTFs:
 
