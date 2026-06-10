@@ -16,7 +16,7 @@ Onchain, minting and redeeming are atomic operations in a single transaction: th
 
 ### In the app (via the zapper)
 
-When using the zapper, the user only specifies the input/output token and how much they want to spend. The zapper abstracts the rest: it trades the input token into the required basket tokens and executes the mint action—or executes the redeem action and then trades the basket tokens into the desired output token. The zapper transaction is also atomic, just with the added trading step packaged in series with the mint/redeem step.
+When using the zapper, the user only specifies the input/output token and how much they want to spend. The zapper abstracts the rest: it trades the input token into the required basket tokens and executes the `mint` action—or executes the `redeem` action and then trades the basket tokens into the desired output token. The zapper transaction is **also** atomic, just with the added trading step packaged in series with the `mint`/`redeem` step.
 
 ### DTFs with offchain liquidity (RFQ / intents)
 
