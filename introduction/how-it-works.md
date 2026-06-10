@@ -10,7 +10,7 @@ The Reserve Index protocol and Reserve Yield protocol are the foundation that gi
 
 They defines how assets are bundled, backed, redeemed, and transferred onchain. Assets governed by the protocols follow shared, transparent sets of rules, making it possible to hold diversified value directly. Everything in the Reserve ecosystem builds on this foundation.
 
-### DTFs (Decentralized Token Folios)
+### DTFs (Decentralized Token Funds)
 
 DTFs let anyone own and earn on everything. They are portfolios of onchain assets, managed by smart contracts. Some are designed to hold value steadily, while others are designed to generate yield. Together, they make it possible to hold diversified value as a single token.
 

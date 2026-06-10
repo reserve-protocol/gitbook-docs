@@ -1,6 +1,6 @@
 # Overview
 
-The Reserve Yield Protocol allows anyone to create diversified baskets backed by yield-bearing ERC-20 tokens on Ethereum, Base, and Arbitrum. The protocol enables permissionless launch, onchain governance, and autonomous operations for yield-bearing Decentralized Token Folios (DTFs):
+The Reserve Yield Protocol allows anyone to create diversified baskets backed by yield-bearing ERC-20 tokens on Ethereum, Base, and Arbitrum. The protocol enables permissionless launch, onchain governance, and autonomous operations for yield-bearing Decentralized Token Funds (DTFs):
 
 * **Permissionless creation & NAV-based issuance.** Anyone can deploy a Yield DTF and let users mint or redeem at real-time asset value, with no reliance on offchain custodians.
 * **Built-in yield capture & routing.** Collateral earns staking, lending, or other rewards; smart contracts harvest and distribute them automatically based on governance-defined routing.
