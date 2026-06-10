@@ -82,13 +82,9 @@ Because governance is modular and token-agnostic, one Index DTF might run a simp
 As with any smart contract application, the actual behavior may vary from the intended behavior, and it's safest to wait for an application to be in use for a long period of time before trusting it to behave as expected. This overview and subsequent documentation describe the intended behavior.
 {% endhint %}
 
-## Anyone can create an RToken
-
-In a similar way as how anyone can create a new trading pair on [Uniswap](https://uniswap.org), anyone can permissionlessly create a new Reserve stablecoin (RToken) by interacting with Reserve Protocol’s smart contracts. The protocol applies a system of [factory smart contracts](smart-contracts.md) that allows anyone to deploy their own smart contract instance.
-
-Creating an RToken can be done either by interacting directly with the [Reserve Protocol’s smart contracts](smart-contracts.md) or any user interface that gets built on top of it. The first user interface for these smart contracts will be released by [ABC Labs](https://www.abclabs.co/), the company that's leading protocol development. Besides the creation of RTokens, this user interface will also support exploring usage and stats related to RTokens, RToken minting & redeeming, and RSR staking.
-
-**NOTE:** The Reserve Register does not yet support permissionless creation of Index DTFs.
+{% hint style="info" %}
+The Reserve Register does not yet support permissionless creation of Index DTFs.
+{% endhint %}
 
 ## Non-compatible ERC20 assets
 
