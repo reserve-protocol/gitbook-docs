@@ -1,47 +1,41 @@
 # Risks
 
-This section is dedicated to explaining risks associated with using the Reserve platform. Whenever you interact with the Reserve platform, **you as the user assume the risk of doing so**. We believe that making best efforts to comprehensively outline risks creates accountability and empowers users. Any time you are uncertain about a particular risk, we invite you to ask on [Telegram](https://t.me/reservecurrency).
+This section explains the risks of using the Reserve platform. If you interact with the platform, you do so at your own risk. The following is provided for informational purposes only and is intended to describe certain risks associated with accessing, using, or otherwise interacting with the Reserve platform, including its smart contracts, related interfaces, and any DTFs. Nothing here or anywhere else on reserve.org or app.reserve.org (the “App”) is a recommendation to purchase, hold, redeem, mint, stake, trade, or otherwise use any DTF, protocol, or service. We believe clearly describing the following risks helps users make informed decisions. If you are unsure about any risk, you can ask questions in [Telegram](https://t.me/reservecurrency).
 
-We encourage all users to familiarize themselves with these risks and continually stay updated about changes that may affect the protocol.
+These risks are not, and should not be construed as, exhaustive. They do not identify all risks, whether known or unknown, existing now or arising in the future. Users should conduct their own independent review and diligence before interacting with the Reserve platform and any DTF and should remain informed of any changes to the protocol, its dependencies, governance arrangements, or related infrastructure. If you do not fully understand the applicable risks, you should not use the Reserve platform.
 
-## Reserve platform risks - smart contracts
+## Reserve platform risks: smart contracts
 
-The Reserve platform is built using smart contracts. If there were undiscovered bugs or vulnerabilities in these contracts, they could be exploited leading to loss of user funds. Although the protocol's contracts have undergone multiple security audits, no audit can guarantee complete security.
+The Reserve platform relies on smart contracts to operate. Smart contracts may contain coding errors, design defects, security vulnerabilities, or other faults, whether known or unknown, that may result in exploits, unauthorized transactions, malfunction, interruption, inaccurate operation, or total or partial loss of user assets. Although smart contracts associated with the Reserve platform may be reviewed, tested, or audited by third parties, no audit, review, or testing process can eliminate all vulnerabilities or guarantee that the smart contracts are secure, functional, or free from defects.
 
-Smart contract-related risks can manifest in a variety of ways. A number of pertinent examples and categories are detailed below.
+## Oracle risks
 
-### Oracle risks
+DTFs rely on third-party and other external pricing inputs, including oracle services, to obtain real-time or near-real-time asset price information. If any oracle fails, becomes unavailable, is manipulated, publishes inaccurate, stale, incomplete, or delayed data, or is integrated or used improperly, the Reserve platform may operate incorrectly. Such failures may affect accounting, collateral management, default determinations, recollateralization actions, redemptions, trading behavior, or other core protocol functions. By way of example only, an inaccurate price report for USDC could cause a Yield DTF to incorrectly treat a collateral asset as defaulted and attempt to exchange that asset for emergency collateral, potentially at a loss.
 
-The Reserve Yield Protocol uses oracles to fetch real-time price data. If these oracles fail or deliver incorrect information, or if the usage of oracles on Reserve is otherwise incorrect, it could impact the protocol's ability to maintain accurate accounting and lead to other operational disruptions. For example, if Chainlink misreports the price of USDC, a Yield DTF may consider a collateral asset to have defaulted and attempt to swap to emergency collateral, potentially at a loss.
+## MEV, slippage, and transaction execution risks
 
-### Sandwich attacks and MEV
+Transactions submitted to public blockchains may be subject to miner or maximal extractable value practices, including sandwich attacks, front-running, back-running, and other forms of transaction reordering or opportunistic extraction. Users interacting with automated market makers or similar trading venues in connection with the Reserve platform, including for DTF trading, may incur losses as a result of adverse price movement, slippage, failed execution, partial execution, or value extraction by third parties. Users are solely responsible for evaluating transaction settings, including slippage tolerances, and for determining whether to use any available transaction protection tools or alternative transaction-routing methods.
 
-[MEV](https://ethereum.org/en/developers/docs/mev/) searchers are constantly scanning the Ethereum blockchain to look for profitable opportunities to extract value. When interacting with AMMs (such as Curve Finance for trading DTFs), users should exercise caution and consider the slippage, which dictates the degree to which searchers can extract from users’ transactions. There are other ways for users to independently seek MEV protection, such as through the [Flashbots RPC](https://docs.flashbots.net/flashbots-protect/rpc/quick-start).
+## Governance risks
 
-### Governance risks
+The Reserve team has deployed a suggested governance system for DTFs that enables fully onchain governance. Because governance powers are broad, governance attacks are possible. For example, an attacker who acquires enough voting power could approve a malicious upgrade that enables theft of funds. Some of this risk is mitigated by special roles within the governance system. That said, these protections only work if the people holding those roles exercise them competently and in good faith. Before using a DTF, users should review who holds these roles on the Details + Roles page and the Governance page in the App.
 
-The Reserve team has deployed a suggested governance system for DTFs, which enables fully onchain governance to DTFs. The scope of the powers is broad, so it is possible for governance attacks to happen. These potential attacks could involve an attacker accumulating enough governance power to enact a malicious upgrade allowing them to steal funds.
+## Issuer and custodian risk
 
-This type of attack is mitigated through the existence of special roles; however, these special roles must be wielded effectively and benevolently in order to offer meaningful protection. When using a DTF, it’s a good idea to familiarize yourself with who holds each of these special roles, which you can do on the Details + Roles page and the Governance page on the Reserve app.
+Digital assets may depend on issuers, custodians, or other centralized or third-party actors. Such parties may impose transfer restrictions, freezes, blacklists, redemption limits, or other controls that could impair the collateral assets underlying DTFs. These powers may be exercised for regulatory, compliance, commercial, discretionary, or other reasons, including reasons unrelated to any particular user conduct. In addition, the value and stability of certain collateral assets may depend on the adequacy, existence, management, and accessibility of offchain reserves or other supporting assets. Those arrangements may fail, be mismanaged, be misrepresented, become illiquid, or otherwise prove insufficient.
 
-## Collateral asset risks
+## Price and market risk
 
-### Issuer/custodian
+The value of a DTF generally reflects the weighted value of its underlying collateral assets. If one or more underlying assets declines in value, depegs, becomes impaired, or experiences volatility, dislocation, or market stress, the value of the DTF may decline correspondingly. DTFs backed by volatile or partially volatile assets may experience substantial price fluctuations, and users should not assume price stability unless expressly stated and continuously maintained, which cannot be guaranteed. In addition, where Yield DTFs rely on RSR or similar overcollateralization mechanisms, such protection may be insufficient in practice. In stressed market conditions, the market value, liquidity, or realizable sale proceeds of RSR may decline materially, which may reduce or eliminate the effectiveness of any overcollateralization and impair the protocol’s ability to recollateralize after a default or collateral event.
 
-It is possible for stablecoin (and other) issuers to impose restrictions on transferability, through blacklists. Although commonly intended to target sanctioned individuals, it is possible for these powers to extend to DeFi protocols. Additionally, stablecoin issuers are relied on for maintaining healthy reserves of real-world assets. The strategies used to maintain these reserves may sometimes fail, or the custodians themselves may not always act in good faith. The best way we are aware of to familiarize yourself with the risks for any given underlying stablecoin is to review the report on that asset published on [Bluechip](https://bluechip.org/), if they cover that asset.
+## Underlying protocol risk
 
-### Price
+The Reserve platform and DTFs may rely on assets, services, or integrations from third-party protocols, applications, bridges, liquidity venues, or infrastructure providers, including lending protocols and other decentralized finance systems. Use of the Reserve platform therefore exposes users to the risks associated with those third-party systems, including smart contract failure, governance failure, insolvency, exploit, oracle error, liquidity failure, bridge failure, upgrade risk, dependency failure, or other operational or legal issues. Failures in any such underlying protocol or integration may directly or indirectly cause loss, delay, impairment, or inaccessibility of collateral assets of DTFs or DTFs themselves.
 
-DTFs inherit the weighted price of all of their backing collateral assets. Where one or more underlying assets deviate in price (even where they are meant to be pegged), the aggregate price of the DTF will be affected. Fluctuations in DTF price should be anticipated where volatile collateral is present.
+## Interface and frontend risks
 
-A slightly distinct price consideration involves that of the RSR overcollateralizing Yield DTFs. Based on the amount of RSR that must be sold to re-collateralize a default, significant market movements may neutralize the effectiveness of the overcollateralization stemming from a weaker mark to market price.
+Users may access the Reserve platform through direct smart contract interaction or through one or more web interfaces, applications, or other frontends operated by third parties. Any such interface may contain bugs, security vulnerabilities, malicious code, inaccurate transaction prompts, display errors, integration failures, or other defects. A frontend may also be compromised, spoofed, censored, unavailable, or operated in a malicious or negligent manner. As a result, users may be induced to sign incorrect transactions, approve unintended permissions, send assets to unintended destinations, or otherwise suffer losses. The existence of a publicly available interface does not constitute any representation that the interface is secure, audited, error-free, or appropriate for any particular use.
 
-### Underlying protocols
+## No representation; assumption of risk
 
-Reserve DTFs leverage assets from external protocols, like Compound, Aave, Flux, and many more. Users therefore assume all of the risks of these underlying protocols (smart contract, governance, or otherwise) when holding DTFs.
-
-## Reserve platform risks - interfaces
-
-### Frontend operator risks
-
-The Reserve platform can be interacted with directly through its smart contracts, or through third-party-created user interfaces. [The Reserve app](https://app.reserve.org/), for example, is run by a third-party company, and has not yet undergone a technical audit. Users must always be vigilant for malicious or compromised frontends, such as in [Badger’s case](https://rekt.news/badger-rekt/). Even in normal operation, bugs in frontend code may be responsible for requesting erroneous transactions which could result in user losses.
+By using the Reserve platform, you acknowledge that blockchain-based systems are inherently experimental and involve technological, legal, regulatory, and economic uncertainties. You further acknowledge that neither the identification of certain risks nor the implementation of any safeguards, audits, monitoring, governance mechanisms, or emergency procedures eliminates the possibility of loss. You assume all risks associated with use of the Reserve platform and DTFs, including risks arising from smart contracts, governance, oracle dependencies, collateral assets, third-party protocols, user interfaces, market conditions, and user error.
