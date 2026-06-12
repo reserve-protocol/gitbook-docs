@@ -22,11 +22,11 @@ Setting the **TTL** longer than the **Auction Delay** creates a period when the 
 
 ### Basket-wide rebalancing auctions <a href="#basket-wide-rebalancing-auctions" id="basket-wide-rebalancing-auctions"></a>
 
-![Rebalancing Example](https://docs.reserve.org/_next/static/media/old-new-baskets.6b8b14c6.png)
+![Rebalancing Example](../../../.gitbook/assets/old-new-baskets.png)
 
 Index DTFs are rebalanced by approving a target basket, and then opening auctions that allow market participants to bid on _any_ surplus:deficit token pair until the tokens in the basket reach their respective target ratios.
 
-![4.0.0 Auctions](https://docs.reserve.org/_next/static/media/4-rebalance.d2ef21d8.png)
+![4.0.0 Auctions](../../../.gitbook/assets/4-rebalance.png)
 
 ### CoW Swap participation <a href="#cow-swap-participation" id="cow-swap-participation"></a>
 
