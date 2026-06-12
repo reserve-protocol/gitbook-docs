@@ -50,7 +50,7 @@ Default value (Base/Arbitrum): `900` = 15 minutes
 The backing buffer is a percentage value that describes how much extra collateral to hold as backing in the Backing Manager. It is important for preventing RSR seizure during normal rebalancing.
 
 * Too low a backing buffer can result in RSR seizure during normal rebalancing. While unpleasant, the stronger reason to avoid this is to prevent situations where RSR stakers are incentivized to unstake before rebalancing proposals in order to avoid paying their fair share. The backing buffer should be set high enough to prevent this outcome.
-* Too high a backing buffer can cause RToken and RSR staker yields to drop during large supply increases as new issuance creates additional debt burdens that must be filled in with new appreciation. In general the amount of time this takes is short, but when an RToken grows fast enough it can outpace and result in no revenue being recognized for a while.
+* Too high a backing buffer can cause RToken and RSR staker yields to drop during large supply increases as new issuance creates additional debt burdens that must be filled in with new appreciation. In general the amount of time this takes is short, but when an RToken grows fast enough, backing-buffer shortfall growth can outpace yield accrual and result in no revenue being recognized for a while.
 
 Note: It is not important to consider the backing buffer for _default_ scenarios, only governance-led rebalances.
 
