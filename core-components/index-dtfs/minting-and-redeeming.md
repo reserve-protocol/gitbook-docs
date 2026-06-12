@@ -4,7 +4,7 @@ Minting/redeeming directly converts between Index DTFs and their underlying toke
 
 ![](<../../.gitbook/assets/issuance and redemption.svg>)
 
-For convenience, the protocol offers zapper helpers that let users enter or exit using almost any ERC‑20 token or native ETH in one transaction. Manual redemptions and direct contract calls enable more flexibility and provide an escape hatch if other methods are down, ensuring users are not reliant on offchain tools to exit positions.
+For convenience, Register offers zapper helpers that let users enter or exit using other ERC‑20 and chain-native tokens in one transaction. Manual redemptions and direct contract calls enable more flexibility and provide an escape hatch if other methods are down, ensuring users are not reliant on offchain tools to exit positions.
 
 ## Protocol level vs. app level
 
@@ -12,7 +12,7 @@ Market makers and integrators often ask what a mint or redeem actually does unde
 
 ### At the protocol level
 
-Onchain, minting and redeeming are atomic operations in a single transaction: the user exchanges exact amounts of each basket token for an exact number of DTF tokens (or vice versa for a redeem). The exchange ratios are defined by—and readable from—the [DTF contracts](smart-contracts.md), so the precise basket amounts for any mint or redeem can be computed in advance.
+Onchain, minting and redeeming are atomic operations in a single transaction: the user exchanges exact amounts of each basket token for an exact number of DTF tokens (or vice versa for a redeem). The exchange ratios are defined by—and readable from—the Folio.sol contracts, so the precise basket amounts for any mint or redeem can be computed in advance.
 
 ### In the app (via the zapper)
 
