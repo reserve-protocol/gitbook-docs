@@ -76,6 +76,8 @@ The Reserve Optimistic Governor provides a dual-path model: a **standard path** 
 * **Optimistic proposals** skip affirmative voting and execute automatically after a short veto window, unless enough token holders vote Against. This path is used for routine operations like launching rebalance auctions.
 * Every proposal, vote, and execution is permanently recorded onchain, giving users, auditors, and regulators a transparent change history.
 
+Read more about how **Reserve Optimistic Governance** works [here](optimistic-governance.md).
+
 Because governance is modular and token-agnostic, one Index DTF might run a simple one-token DAO, while another could delegate voting power across multiple stakeholders or adopt more sophisticated vote-lock mechanics over time.
 
 {% hint style="warning" %}
@@ -95,6 +97,3 @@ The following types of ERC20s are not supported to be used directly in an Index 
 * ERC777 tokens which could allow reentrancy attacks
 * Tokens with multiple entry points (multiple addresses)
 * Tokens that do not adhere to the ERC20 standard in general
-
-
-

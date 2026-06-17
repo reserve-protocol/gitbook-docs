@@ -26,6 +26,7 @@
   * [Security](core-components/index-dtfs/security.md)
   * [Deployment guide](core-components/index-dtfs/deployment-guide.md)
   * [Smart contracts](core-components/index-dtfs/smart-contracts.md)
+  * [Optimistic Governance](core-components/index-dtfs/optimistic-governance.md)
 * [Yield DTFs](core-components/yield-dtfs/README.md)
   * [Overview](core-components/yield-dtfs/overview.md)
   * [Minting & redeeming](core-components/yield-dtfs/minting-and-redeeming.md)
