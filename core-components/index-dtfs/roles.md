@@ -10,12 +10,12 @@ The [Protocol Operations](overview.md) chapter explains how these contracts work
 
 The table below groups the protocol's contracts into functional layers and highlights the role each set of contracts plays within the system.
 
-| Layer                      | Core contracts                                                                  | Purpose                                                                                                                                                                      |
-| -------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DAO infrastructure**     | `FolioDAOFeeRegistry`, `FolioVersionRegistry`                                   | Collect protocol-wide fees and whitelist Folio implementations / deployers                                                                                                   |
-| **Index (“Folio”) layer**  | `Folio` (ERC-20), `FolioProxy`                                                  | Represents the basket and embeds the rebalance-auction engine; proxy pattern allows controlled upgrades                                                                      |
-| **Governance layer**       | <p><code>FolioGovernor</code> </p><p><code>ReserveOptimisticGovernor</code></p> | Dual-path governance (standard & optimistic) that executes proposals and manages rebalances. The selector registry whitelists which actions can use the optimistic fast path |
-| **Staking / voting layer** | `StakingVault`                                                                  | Escrows vote-locked governance tokens and streams rewards while providing voting weight for both standard and optimistic proposals                                           |
+| Layer                      | Core contracts                                                                 | Purpose                                                                                                                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DAO infrastructure**     | `FolioDAOFeeRegistry`, `FolioVersionRegistry`                                  | Collect protocol-wide fees and whitelist Folio implementations / deployers                                                                                                   |
+| **Index (“Folio”) layer**  | `Folio` (ERC-20), `FolioProxy`                                                 | Represents the basket and embeds the rebalance-auction engine; proxy pattern allows controlled upgrades                                                                      |
+| **Governance layer**       | <p><code>FolioGovernor</code></p><p><code>ReserveOptimisticGovernor</code></p> | Dual-path governance (standard & optimistic) that executes proposals and manages rebalances. The selector registry whitelists which actions can use the optimistic fast path |
+| **Staking / voting layer** | `StakingVault`                                                                 | Escrows vote-locked governance tokens and streams rewards while providing voting weight for both standard and optimistic proposals                                           |
 
 ## Governance roles
 
@@ -50,15 +50,15 @@ All actions are gated by a timelock (default 48 h). Cannot bypass hard-coded par
 {% endstep %}
 
 {% step %}
-### Auction Approver
+### Rebalance Manager
 
-The Auction Approver is responsible for configuring auctions for execution.
+The Rebalance Manager is responsible for configuring auctions for execution.
 
 #### Expected actor
 
-The same DAO that acts as the Admin should also take on the role of Auction Approver, and the default deployment configuration in Register is exactly this.
+The same DAO that acts as the Admin should also take on the role of Rebalance Manager, and the default deployment configuration in Register is exactly this.
 
-However, having the Auction Approver as a separate role gives the Admin the optionality to permission a smaller set of trusted actors to approve auctions. This would allow the DTF to move faster on basket changes, but comes with the added risk of the DTF being considered a security (due to the nature of the asset selection being managed by a small group of permissioned actors) and mint access being geo-blocked on Register.
+However, having the Rebalance Manager as a separate role gives the Admin the optionality to permission a smaller set of trusted actors to approve auctions. This would allow the DTF to move faster on basket changes, but comes with the added risk of the DTF being considered a security (due to the nature of the asset selection being managed by a small group of permissioned actors) and mint access being geo-blocked on Register.
 
 #### Abilities
 
@@ -68,7 +68,7 @@ Each auction definition has the following parameters at approval:
 
 * `Sell Token`: the token to be sold by the DTF
 * `Buy Token`: the token to be bought by the DTF
-* `Expected Volatility`: the amount of price movement that is expected in the `Sell Token`:`Buy Token` pairing. The Auction Approver can select between 3 options: Low, Medium, and High.
+* `Expected Volatility`: the amount of price movement that is expected in the `Sell Token`:`Buy Token` pairing. The Rebalance Manager can select between 3 options: Low, Medium, and High.
 * `Time To Live (TTL)`: How long (in seconds) an auction can exist in an APPROVED state until it can no longer be opened. This value must be longer than the DTF-configured `Auction Delay` if the auction is intended to be permissionlessly available.
 
 #### Limitations
@@ -87,7 +87,7 @@ A DTF is NOT required to have any Auction Launchers, as auctions can be launched
 
 Because this role takes on a more ministerial job, it can be held by a trusted multisig or EOA.
 
-While any Auction Launcher should be trusted, they can only modify the pricing information within the bounds set by the Auction Approver, thus limiting the amount of damage from mistakes or a rogue actor.
+While any Auction Launcher should be trusted, they can only modify the pricing information within the bounds set by the Rebalance Manager, thus limiting the amount of damage from mistakes or a rogue actor.
 
 #### Abilities
 
@@ -117,8 +117,6 @@ A trusted multisig or EOA that handles day-to-day operational proposals such as 
 #### Limitations
 
 Subject to a _proposal throttle_ limiting the number of optimistic proposals per account within a 24-hour window. Can only propose whitelisted (proposer, target, selector) combinations. Cannot propose changes to governance infrastructure (Governor, Timelock, Selector Registry, or Staking Vault). The role can be revoked at any time by a Guardian without a governance vote.
-
-
 {% endstep %}
 
 {% step %}

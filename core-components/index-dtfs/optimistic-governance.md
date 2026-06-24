@@ -49,7 +49,7 @@ During the veto window, any holder can vote against the proposal. There are no F
 {% step %}
 #### One of two things happens:
 
-**If the veto window closes an too few Against votes came in**, the proposal passes and executes right away.
+**If the veto window closes an too few Against votes came in**, the proposal passes and can be executed right away.
 
 **If Against votes cross the veto threshold at any point during the veto window**, the proposal is blocked and a full community vote is automatically opened in its place.
 {% endstep %}
@@ -92,7 +92,7 @@ Slow proposals — including any confirmation vote that comes out of a vetoed fa
 
 ### What protects the fast path
 
-The fast path is fast because it's narrow. Four independent safeguards keep it that way:
+The fast path is fast because it's narrow. Five independent safeguards keep it that way:
 
 **A pre-approved action list.** Fast proposals can only call actions that have been explicitly added to an allowlist by slow governance. New actions cannot be added through the fast path itself.
 
