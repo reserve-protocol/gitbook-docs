@@ -14,6 +14,8 @@
   * [Overview](core-components/index-dtfs/overview.md)
   * [Pricing](core-components/index-dtfs/pricing.md)
   * [Minting & redeeming](core-components/index-dtfs/minting-and-redeeming.md)
+    * [Integrating the Zapper](core-components/index-dtfs/integrating-the-zapper.md)
+    * [Native mint and redeem integration](core-components/index-dtfs/native-mint-and-redeem-integration.md)
   * [Roles](core-components/index-dtfs/roles.md)
   * [Fees](core-components/index-dtfs/fees/README.md)
     * [TVL fee](core-components/index-dtfs/fees/tvl-fee.md)

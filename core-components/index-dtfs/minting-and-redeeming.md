@@ -61,3 +61,10 @@ Call `mint` or `redeem` on the DTF proxy. Basket ratios are calculated and enfor
 See the [smart contracts](smart-contracts.md) section for contract details and addresses.
 {% endstep %}
 {% endstepper %}
+
+## Integration guides
+
+Third-party wallets, fintech applications, aggregators, and solvers can choose between two integration paths:
+
+* **[Integrate the Reserve Zapper](integrating-the-zapper.md):** the recommended low-lift path for a single-token buy/sell experience. Embed the maintained React component or consume the Zapper quote API and execute its returned transaction.
+* **[Build native mint and redeem routes](native-mint-and-redeem-integration.md):** call the Folio proxy directly, calculate the live basket and fees, and optionally compose component swaps in an integration router.
