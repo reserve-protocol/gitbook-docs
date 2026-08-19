@@ -13,7 +13,7 @@ fee_amount = mint_amount * mint_fee_percentage
 user_receives = mint_amount - fee_amount
 ```
 
-This is the user-facing economic model. Contract integrations must also account for integer rounding and the protocol fee floor in the Folio's deployed implementation. See the [native mint integration guide](../native-mint-and-redeem-integration.md#2-calculate-net-shares-and-minsharesout) for the Folio v5 calculation.
+This is the user-facing economic model. Contract integrations must also match the Folio's upward integer rounding. See the [native mint integration guide](../native-mint-and-redeem-integration.md#2-calculate-net-shares-and-minsharesout) for the calculation.
 
 #### Example <a href="#example" id="example"></a>
 

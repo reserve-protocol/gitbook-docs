@@ -29,19 +29,12 @@ The state-changing `mint` call synchronizes accrued TVL fees before recalculatin
 
 ### 2. Calculate net shares and `minSharesOut`
 
-Read `mintFee()` from the Folio and `getFeeDetails(folio)` from `daoFeeRegistry()`. For Folio v5, mirror the deployed contract's upward rounding:
+Read `mintFee()` directly from the Folio and mirror the contract's upward rounding:
 
 ```text
 ceilDiv(x, y) = x == 0 ? 0 : (x - 1) / y + 1
 
 totalFeeShares = ceilDiv(shares × mintFee, 1e18)
-
-daoFeeShares = max(
-  ceilDiv(totalFeeShares × daoFeeNumerator, daoFeeDenominator),
-  ceilDiv(shares × max(daoFeeFloor, 0.0003e18), 1e18)
-)
-
-totalFeeShares  = max(totalFeeShares, daoFeeShares)
 expectedSharesOut = shares - totalFeeShares
 ```
 
@@ -55,9 +48,7 @@ for strict protection, or subtract a small, explicitly disclosed tolerance if th
 
 `minSharesOut` protects only the net DTF shares received. It does not protect the price or slippage of swaps used to acquire the basket.
 
-{% hint style="warning" %}
-Fee logic is implementation-specific. Reproduce the verified deployed implementation rather than assuming `shares × (1 - mintFee)` is always exact.
-{% endhint %}
+Use integer arithmetic rather than `shares × (1 - mintFee)` so the result matches the contract's rounding exactly.
 
 ### 3. Acquire and approve the basket
 
