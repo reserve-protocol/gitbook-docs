@@ -48,7 +48,7 @@ Unlike Yield DTFs, Index DTFs do not rely on yield-bearing collateral for revenu
 
 | Fee type             | Basis             | Range    | Accrual method                     |
 | -------------------- | ----------------- | -------- | ---------------------------------- |
-| **TVL (management)** | Basket NAV        | < 5% APY | Mint new DTF shares block-by-block |
+| **TVL (management)** | Basket NAV        | < 5% APY | Mint new DTF shares once a day |
 | **Mint**             | Incoming issuance | < 1%     | Fee deducted from each mint        |
 
 All newly minted shares flow first to the platform take-rate, with the remainder split between addresses set by governance. Currently, the platform fee is used to automatically buy and burn RSR.

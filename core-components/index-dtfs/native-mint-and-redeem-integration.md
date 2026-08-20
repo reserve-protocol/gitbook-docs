@@ -25,7 +25,7 @@ toAssets(shares, Math.Rounding.Ceil)
 
 The returned ordered `assets` and `amounts` are the exact basket tokens and quantities required for that gross issuance at the quoted state.
 
-The state-changing `mint` call synchronizes accrued TVL fees before recalculating the basket. This can make a preceding view-only quote differ slightly at execution time; tightly bounded allowances, a fresh simulation, and atomic routing should cause stale quotes to fail safely.
+Once a day, TVL fee accrual can result in the `amounts` changing in the downward direction. This can make a preceding view-only quote differ slightly at execution time; tightly bounded allowances, a fresh simulation, and atomic routing should cause stale quotes to fail safely.
 
 ### 2. Calculate net shares and `minSharesOut`
 
@@ -96,6 +96,8 @@ redeem(
 ```
 
 The caller's DTF shares are burned and the basket tokens are sent to `receiver`. For a single-token exit, set the integration router as `receiver`, swap all components, enforce the user's final minimum output, and transfer the result to the user in the same transaction.
+
+Similar to minting, once a day, TVL fee accrual can result in the `amounts` changing in the downward direction. Use `minAmountsOut` for protection. 
 
 ## Router and quote requirements
 
